@@ -1,0 +1,26 @@
+name: tts_narration_humanization
+title: Humanize TTS narration
+description: Makes text-to-speech narration sound human through phonetic brand spelling, paced pauses, breaths and natural fillers; use when producing narrated podcast episodes or other spoken audio.
+category: Media
+include_in_prompt: false
+skill_improvement:
+  managed: true
+  status: active
+  evidence_handles:
+  - message:cbd5f253-f5f4-409b-87ee-eb25f3cee156
+  - message:2b536109-d07c-4ab8-40e9-9805b8790820
+  - message:assistant-msg-ab3f6fea-ead9-41bd-a26b-f0027d365c29
+  - MEMORY.md (podcast TTS convention 2026-10-18; narration rules 2026-10-15/17)
+  - /opt/muse/skills/generate_podcast/references/script.md
+  - 'verification-artifact: tts_narration_humanization Available connectors'
+  - /opt/hatch/connectors/spotify/CONNECTOR.md
+  - /opt/muse/skills/generate_podcast/SKILL.md (Available connectors)
+  measurement:
+    proxy_metric_id: tts_narration_defect_rate
+    success_criterion: No user-reported pronunciation misreads, AI-tell complaints, or narration re-render requests on podcast episodes produced in the window; episodes ship after the skill's listen check without the humanization rework that motivated it.
+    window_days: 30
+  needs_review: false
+  rationale: 'On 2026-10-18 the user caught the TTS host saying the brand name inconsistently (''that70sday'' one render, ''that70sda'' the next, often an awkward cut) and called it a ''dead giveaway'' of synthetic speech, directing that it must be written phonetically (''that 70s daa''). The root fix was applied across EP2 through EP8 plus the trailer and saved as a standing rule. In parallel the user drove a verified narration humanization method: around 700 milliseconds of real silence between sections, mid-section breaths when any stretch exceeds about 45 seconds, sparse fillers (''hmm'', ''well'', ''ah'') only at real thinking beats, titles never read aloud, and a 60-second listen check with fixed must-haves before shipping. The system generate_podcast skill and its script reference cover spelling out numbers and abbreviations but contain nothing about phonetic brand-name spelling or pacing humanization, and the method is reused on every narrated episode, so it earns a standalone managed skill rather than living only in user-specific memory.'
+  review_after: 2026-11-17T23:46:43.889195+00:00
+  reviewed_at: 2026-10-18T23:46:43.889195+00:00
+  run_id: sirun_c9c8d18cadb84aa291f522433b46f422

@@ -1,0 +1,320 @@
+# Socialy.INK - engaged-target registry v1
+# One entry per target ever engaged (or formally skipped), across channels.
+# Purpose: no target is re-pitched cold, repeats become relationships, and
+# skips stay skipped for the recorded reason. Updated after every daily run.
+# Seeded 2026-10-22 from the day-1 run (goal hidden_files/engagement-log-2026-10-22.md)
+# plus the 2026-10-20/21 manual engagement that preceded the framework.
+
+targets:
+
+  # ---------------- X ----------------
+  - channel: x
+    target: "@onPredxy"
+    followers: ~4400
+    actions: [reply, follow]
+    date: 2026-10-22
+    outcome: live
+    post: https://x.com/onPredxy/status/2113295594219319644
+    reply: https://x.com/That70sDa/status/2113342598110666994
+    topic: Fed silence; October hike odds collapse 54% -> 7%
+
+  - channel: x
+    target: "@Qin3Qin"
+    followers: ~3300
+    actions: [reply, follow]
+    date: 2026-10-22
+    outcome: live
+    post: https://x.com/Qin3Qin/status/2113303955237392661
+    reply: https://x.com/That70sDa/status/2113344085129851003
+    topic: NBIS - company fine, sector credit broken (CoreWeave 14.5%)
+
+  - channel: x
+    target: "@DrHashClub"
+    followers: ~25000
+    actions: [reply, follow]
+    date: 2026-10-22
+    outcome: live
+    post: https://x.com/DrHashClub/status/2113305974450831861
+    reply: https://x.com/That70sDa/status/2113345344872583206
+    topic: short-covering bounce vs trend reversal (post in Chinese)
+
+  - channel: x
+    target: "@EnergieSzene"
+    name: Marc Gusewski
+    followers: ~1000
+    actions: [reply, follow]
+    date: 2026-10-22
+    outcome: live
+    post: https://x.com/EnergieSzene/status/2113290090525130937
+    reply: https://x.com/That70sDa/status/2113346267635945746
+    topic: Houthi strikes on Aramco; Brent ~$110
+
+  - channel: x
+    target: "@MirgoTrades"
+    name: Omar Mirza
+    followers: 54
+    actions: [reply, follow]
+    date: 2026-10-22
+    outcome: live
+    post: https://x.com/MirgoTrades/status/2113313202490524127
+    reply: https://x.com/That70sDa/status/2113347131239014466
+    topic: rotation not recession; claims 194K
+
+  - channel: x
+    target: "@MikeZaccardi"
+    followers: ~81800
+    actions: []
+    date: 2026-10-22
+    outcome: skipped
+    reason: over the 50K ceiling - flagged, no draft (escalation rule)
+
+  - channel: x
+    target: "@vinodsrinivasan"
+    followers: ~41000
+    actions: [reply]
+    date: 2026-10-20
+    outcome: live
+    topic: AI-infra debt vs cash flow
+
+  - channel: x
+    target: "@LogicalThesis"
+    followers: ~42000
+    actions: [reply]
+    date: 2026-10-20
+    outcome: live
+    topic: semis "not generals"
+
+  - channel: x
+    target: "@Stockzorg"
+    followers: ~1300
+    actions: [reply]
+    date: 2026-10-20
+    outcome: live
+    topic: market breadth warning
+
+  - channel: x
+    target: "@oleh_bernatskyi"
+    followers: ~855
+    actions: [reply]
+    date: 2026-10-20
+    outcome: live
+    topic: sticky PPI/CPI
+
+  - channel: x
+    target: "@AxelMerk"
+    followers: ~21800
+    actions: [reply]
+    date: 2026-10-21
+    outcome: live
+    topic: Warsh "hawk at heart"
+
+  - channel: x
+    target: "@FOMCAlerts"
+    followers: ~41100
+    actions: [reply]
+    date: 2026-10-21
+    outcome: live
+    topic: Reuters poll on the Fed
+
+  - channel: x
+    target: "@RealMaziNedum"
+    followers: ~585
+    actions: [reply]
+    date: 2026-10-21
+    outcome: live
+    topic: gold vs priced December hike
+
+  - channel: x
+    target: "@B_radRiffs"
+    followers: ~849
+    actions: [reply]
+    date: 2026-10-21
+    outcome: live
+    topic: Hormuz / dollar "cleanest dirty fiat shirt"
+
+  # ---------------- Substack ----------------
+  - channel: substack
+    target: Rock and Turner
+    url: rockandturner.substack.com
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    post: https://rockandturner.substack.com/p/wed-oct-21-2026-the-market-today
+    response: author_liked_comment
+    response_date: 2026-10-22
+    response_note: James Emanuel liked the persona's comment (Substack reaction email, 2026-10-22T21:12:51Z) - first reciprocal engagement on a day-1 Substack target
+
+  - channel: substack
+    target: CappNotes
+    url: cappnotes.substack.com
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    post: https://cappnotes.substack.com/p/closing-look-wednesday-october-21
+    response: author_liked_comment
+    response_date: 2026-10-22
+    response_note: Frank Cappelleri liked the persona's comment (Substack reaction email, 2026-10-22T21:31:46Z) - second reciprocal engagement on a day-1 Substack target
+
+  - channel: substack
+    target: Tech Trends News Update
+    url: techtrendsnewsupdate.substack.com
+    actions: [subscribe]
+    comment_outcome: skipped
+    comment_reason: comments restricted to paid subscribers; free-tier rule, never pay
+    date: 2026-10-22
+    post: https://techtrendsnewsupdate.substack.com/p/tech-trends-news-update-coffee-break-ca0
+
+  - channel: substack
+    target: blankamisconiovalee
+    url: blankamisconiovalee.substack.com
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://blankamisconiovalee.substack.com/p/the-rogue-puppet-theater-the-fallacy
+
+  - channel: substack
+    target: The Innermost Loop
+    url: theinnermostloop.substack.com
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    post: https://theinnermostloop.substack.com/p/welcome-to-october-21-2026
+
+  - channel: substack
+    target: Systematic Strategies
+    url: systematicstrategies.substack.com
+    actions: [comment, subscribe]
+    date: 2026-10-20 (comment) / 2026-10-22 (subscribe)
+    outcome: live
+    notes: first external engager with the persona; warm relationship, deepen over time
+
+  - channel: substack
+    target: On Substack (Model Behavior - Rick Rubin)
+    url: on.substack.com
+    actions: []
+    date: 2026-10-22
+    outcome: unreachable
+    reason: comments disabled by the publisher; read and confirmed on-topic (Pangram / human writing)
+
+  # ---------------- LinkedIn (as the That70sDa page) ----------------
+  - channel: linkedin_page
+    target: Eléonore Crespo
+    followers: ~41500
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://www.linkedin.com/feed/update/urn:li:activity:7518588235799937025/
+    topic: Pigment $250M raise; 85% of planning metrics created by agents
+
+  - channel: linkedin_page
+    target: Rithm Capital (page)
+    followers: ~13000
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://www.linkedin.com/feed/update/urn:li:activity:7519051237430837248/
+    topic: October vs December Fed odds spread
+
+  - channel: linkedin_page
+    target: Erick Nzoribala
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://www.linkedin.com/posts/erick-nzoribala-9297151b5_investing-2008housing-share-7518824179647913987-CQZ_/
+    topic: AI infra credit, subprime comparison
+
+  - channel: linkedin_page
+    target: Kevin Buckley
+    followers: ~2149
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://www.linkedin.com/posts/bukevin_semiconductors-siliconsaxony-dresden-ugcPost-7519022316543086592-g-kc/
+    topic: TSMC Dresden / Silicon Saxony
+
+  - channel: linkedin_page
+    target: Chelsae Carmickle
+    followers: ~332
+    actions: [comment]
+    date: 2026-10-22
+    outcome: live
+    post: https://www.linkedin.com/posts/chelsae-carmickle-financial-advisor_10-year-treasury-yield-backs-off-from-24-share-7519065740717641728-dWn8/
+    topic: 10Y yield backs off the 5.35% print; $39B auction
+
+  - channel: linkedin_page
+    target: page follows - NVIDIA, TSMC, Anthropic, Bloomberg, Substack
+    actions: [follow x5]
+    date: 2026-10-22
+    outcome: live
+    notes: via the page's Manage following; list went 0 -> 5
+
+  - channel: linkedin_page
+    target: Vedant Kale
+    followers: ~2342
+    actions: [comment]
+    date: 2026-10-21
+    outcome: live
+    topic: NVIDIA picks-and-shovels
+
+  - channel: linkedin_page
+    target: Ian Gibbs
+    followers: ~1032
+    actions: [comment]
+    date: 2026-10-21
+    outcome: live
+    topic: NVIDIA DGX Cloud / Recovery launch
+
+  - channel: linkedin_page
+    target: Jayden Wagner
+    followers: ~4955
+    actions: [inbound comment on our Tuition Tuesday post; Ravi replied as the page]
+    date: 2026-10-21
+    outcome: relationship - reply channel only (his posts are education/tutoring, off-lane)
+
+  - channel: linkedin_page
+    target: skips of record
+    date: 2026-10-22
+    outcome: skipped
+    reason: "Deena Zaidi (press/media); BT Labs (partnership/money offer); Florida High Tech Corridor (partnership announcement); Drew Fisher (personal-finance advice); Bruce Burke 2026-10-21 (post inside a LinkedIn Group - unreachable as a page)"
+
+  # ---------------- YouTube (as the That70s Da channel) ----------------
+  - channel: youtube
+    target: Pixel Knowledge
+    subscribers: ~12
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    video: https://www.youtube.com/watch?v=XXydEd-tIh8
+
+  - channel: youtube
+    target: Dan Economics
+    subscribers: ~26
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    video: https://www.youtube.com/watch?v=7Xr7eye9p3Q
+
+  - channel: youtube
+    target: food for thought (Midweek Market Breakdown)
+    subscribers: ~29
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    video: https://www.youtube.com/watch?v=9rHcxJoFjsw
+
+  - channel: youtube
+    target: The Monetary Matters Network (Jack & Max)
+    subscribers: ~58900
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    video: https://www.youtube.com/watch?v=jvWdaw2Hreg
+    notes: "CEILING FLAG: channel is above the 50K escalation ceiling in config.yaml, yet was included in the approved day-1 run pack and posted. Phase 1 adapter spec must settle whether the ceiling applies per-channel on YouTube (subscriber counts) the same way as followers elsewhere - until then, flag >50K YouTube targets for a human call before drafting."
+
+  - channel: youtube
+    target: Reserve Signal
+    actions: [comment, subscribe]
+    date: 2026-10-22
+    outcome: live
+    video: https://www.youtube.com/watch?v=SX-74QUbDi0
+    notes: fallback target - no fresher (24h) yields/Fed video surfaced in-session

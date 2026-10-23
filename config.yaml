@@ -1,0 +1,38 @@
+# Socialy.INK - engagement configuration
+# N is per channel, per day. Defaults: 5. Change a number here and every
+# future daily run follows it; no other file needs editing.
+
+defaults:
+  comments_per_day: 5
+  follows_per_day: 5
+  target_window_hours: 24        # how fresh a target post must be
+  max_author_followers: 50000     # bigger accounts are escalation-skips, logged for a human call
+  reply_char_limit_x: 200         # X replies stay under this
+
+pacing:
+  intra_run_gap_minutes: [2, 6]   # randomized gap between posts in one session
+  run_start_jitter_minutes: 120   # daily run start wanders inside its slot
+  auto_reply_delay_minutes: [15, 90]
+
+channels:
+  x:
+    enabled: true
+    comments: 5                   # replies to in-lane posts
+    follows: 5                    # prefer accounts engaged with that day
+  linkedin_page:
+    enabled: true
+    comments: 5                   # feed posts only; groups are unreachable as a page
+    follows: 5                    # pages only, via the page's Manage following
+  substack:
+    enabled: true
+    comments: 5
+    follows: 5                    # free subscribes / follows of in-lane publications
+  youtube:
+    enabled: true
+    comments: 5                   # no links in comments (spam filters)
+    follows: 5                    # subscribes to channels commented on
+
+safety:
+  stop_on_platform_warning: true  # any warning/limit/CAPTCHA ends that channel's run
+  never_circumvent_blocks: true
+  verify_live_after_post: true    # every post is read back live before it counts
