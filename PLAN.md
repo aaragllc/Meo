@@ -118,3 +118,17 @@ plus follows/connects where the channel supports them.
 - GitHub repo details (when ready - Phase 3 only, nothing blocks on it).
 - Anything in the phasing he wants reordered; N changes are config edits,
   no approval needed per change.
+
+## Phase 5 - Self-learning and self-healing operations (added 2026-10-23, Ravi's direction)
+
+Spec: SPEC-self-learning.md. Core built same day: LESSONS.md registry (22
+lessons, every taxonomy code registered), tools/socialy_check.py gate
+runner (ship gate + platform state), healing table (detect -> remedy ->
+verify -> escalate per failure code), daily ops watchdog cron with two
+standing auto-remedies (intake consumption, backup re-run), ops-health
+section in the Sunday review. Engagement cron revised to emit
+SPEC-run-log-schema logs (first conforming log: 2026-10-24 run). State
+check at build time: HEALTHY (parity 0 new gaps, 13/13 codes covered).
+Remaining Phase 5 polish (build when idle): BOOTSTRAP wiring of the gate
+runner into the daily-operation section; ops aggregator over run logs
+for the Sunday ops-health numbers.

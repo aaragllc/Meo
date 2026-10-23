@@ -158,3 +158,9 @@ setup beyond the repo itself.
   SEO rule recorded 2026-10-22, not from SPEC-studio.md, which caps only
   subtitles (C1). If the caps move into the studio spec, this table
   should point there instead.
+
+- socialy_check.py (Phase 5): the gate runner. `ship FILE...` = pre-ship
+  gate (lint + unresolved-placeholder scan + subtitle/SEO presence);
+  exit 1 blocks the ship. `state` = platform self-check (parity, run-log
+  validation for post-2026-10-23 logs, LESSONS.md coverage of every
+  taxonomy code). Run by the daily ops watchdog and the Sunday review.

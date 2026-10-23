@@ -318,3 +318,215 @@ targets:
     outcome: live
     video: https://www.youtube.com/watch?v=SX-74QUbDi0
     notes: fallback target - no fresher (24h) yields/Fed video surfaced in-session
+
+  # ---------------- Day-2 run (Fri 2026-10-23) ----------------
+
+  # X
+  - channel: x
+    target: "@strategitz"
+    name: Paulo Gitz, CFA
+    followers: 4575
+    actions: [reply, follow]
+    date: 2026-10-23
+    outcome: live
+    post: embedded at https://strategitz.substack.com/p/global-markets-close-october-22-2026 (Oct 22 Max Pain post)
+    reply: https://x.com/That70sDa/status/2113670245781234074
+    topic: Max Pain theory; Thursday rotation - safety trades crowded
+
+  - channel: x
+    target: "@WallSt_Wiz"
+    name: Wall St. Wizard
+    followers: ~10000
+    actions: [reply, follow]
+    date: 2026-10-23
+    outcome: live
+    reply: https://x.com/That70sDa/status/2113671749774541148
+    topic: US10Y back in the 4% range; bond yields cooling
+
+  - channel: x
+    target: "@wallstengine"
+    name: Wall St Engine
+    followers: 204800
+    actions: []
+    date: 2026-10-23
+    outcome: skipped
+    reason: over the 50K ceiling - flagged, no draft (escalation rule)
+
+  - channel: x
+    target: "@InvestSpecial"
+    actions: [follow]
+    date: 2026-10-23
+    outcome: live
+    notes: discovered in-session, verified in-lane and under the ceiling
+
+  - channel: x
+    target: "@LaughingH20Cap"
+    actions: [follow]
+    date: 2026-10-23
+    outcome: live
+    notes: discovered in-session, verified in-lane and under the ceiling
+
+  - channel: x
+    target: "@LogicalThesis"
+    followers: ~42000
+    actions: [follow]
+    date: 2026-10-23
+    outcome: live
+    notes: replied 2026-10-20; follow added 2026-10-23 (was not followed before)
+
+  # Substack
+  - channel: substack
+    target: Strategitz
+    url: strategitz.substack.com
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://strategitz.substack.com/p/global-markets-close-october-22-2026
+    comment: https://strategitz.substack.com/p/global-markets-close-october-22-2026/comment/368423747
+    followup: free subscribe failed - Substack returned 'Something went wrong' (site error, not a limit); retry in a later run
+
+  - channel: substack
+    target: Stock Market Moods
+    url: stockmarketmoods.substack.com
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://stockmarketmoods.substack.com/p/what-companies-are-saying-so-far
+    comment: https://stockmarketmoods.substack.com/p/what-companies-are-saying-so-far/comment/368426613
+    followup: free subscribe failed - Substack returned 'Something went wrong' (site error); retry in a later run
+
+  - channel: substack
+    target: Broad Spectrum Finance
+    url: broadspectrum.substack.com
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://broadspectrum.substack.com/p/broad-spectrum-finance-87-the-bill
+    comment: https://broadspectrum.substack.com/p/broad-spectrum-finance-87-the-bill/comment/368428417
+    followup: free subscribe failed - Substack returned 'Something went wrong' (site error); retry in a later run
+
+  - channel: substack
+    target: Neo Reports
+    url: neoreports.substack.com
+    actions: []
+    date: 2026-10-23
+    outcome: skipped
+    reason: comment thread paid-subscribers-only ('This thread is only visible to paid subscribers'); free-tier rule, never pay
+
+  - channel: substack
+    target: The Conviction And The Caution
+    url: convictioncaution.com
+    actions: [comment (pending moderation)]
+    date: 2026-10-23
+    outcome: submitted, awaiting author moderation - not yet publicly visible
+    post: https://convictioncaution.com/2026/10/21/the-ai-trades-debt-problem-a-data-led-report/
+    comment_preview: https://convictioncaution.com/2026/10/21/the-ai-trades-debt-problem-a-data-led-report/comment-page-1/?unapproved=4&moderation-hash=dd96967c1f6418a0d0d37f6fb8195a14#comment-4
+    notes: standalone WordPress site, not Substack; submitted as guest 'That70s Da'
+    followup: email subscribe initiated; WordPress.com confirmation link sent to that70sda@gmail.com - click to complete
+
+  # LinkedIn (as the That70sDa page)
+  - channel: linkedin_page
+    target: Marko Uremovic
+    followers: 1 connection (no follower count; under ceiling)
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://www.linkedin.com/posts/marko-uremovic-1786423aa_continuing-the-practice-of-only-using-the-ugcPost-7519162063068323840-BFyD/
+    topic: defensive rotation day read
+
+  - channel: linkedin_page
+    target: Kenneth Carter, MBA
+    followers: 1062
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://www.linkedin.com/posts/kenneth-carter-mba-2802b995_the-bond-market-may-be-warning-you-about-share-7519063710846595072-W08y/
+    topic: bond market warning on stocks; credit as earlier signal
+
+  - channel: linkedin_page
+    target: Neil Sethi
+    followers: 585
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://www.linkedin.com/in/neil-sethi-31204051/recent-activity/all/ (direct post URL not exposed by LinkedIn UI)
+    topic: semiconductors (SOX) vs 10-year yields this month
+
+  - channel: linkedin_page
+    target: NovaQ Capital (page)
+    followers: 66
+    actions: [comment]
+    date: 2026-10-23
+    outcome: live
+    post: https://www.linkedin.com/feed/update/urn:li:activity:7519408000772710400/
+    topic: labor data (194K claims) vs 17bp 10-year rally into Oct 28 FOMC
+
+  - channel: linkedin_page
+    target: page follows - Microsoft AI Economy Institute, Google DeepMind, AI at Meta
+    actions: [follow x3]
+    date: 2026-10-23
+    outcome: live
+    notes: via the page's Manage following; Microsoft AI Economy Institute 2038 followers, Google DeepMind 1724355, AI at Meta 1131141; NovaQ's follow button would act as the personal profile - not clicked
+
+  - channel: linkedin_page
+    target: skips of record
+    date: 2026-10-23
+    outcome: skipped
+    reason: "Zacks Investment Research (fallback unused - fresher targets found in-session); Rithm Capital (already engaged); Florida High Tech Corridor (partnership announcement); Intel (over ceiling); NebulaPulse Metrics / Allroadparts / Jorvanta (market-research spam); Jonathan Kacmarcik (personal-finance-adjacent); Tadhg Enright (press/TV journalist); Ranjit S Samra (promotional BNY Wealth repost); Market Signal (media aggregator); AFRICAN PEACE MAGAZINE LTD (press); Deepak Rana (crypto pitch); Neil Sethi's second post (already engaged this run)"
+
+  # YouTube (as the That70s Da channel)
+  - channel: youtube
+    target: The Mathematical Trader (Navnoor Bawa)
+    subscribers: 801
+    actions: [comment, subscribe]
+    date: 2026-10-23
+    outcome: live
+    video: https://www.youtube.com/watch?v=9yKZeDp4Mok
+    comment: https://www.youtube.com/watch?v=9yKZeDp4Mok&lc=UgyYZcyvaxQQ5gdQq9h4AaABAg
+    topic: CoreWeave $50B debt - who gets hit first; 2002 parallel
+
+  - channel: youtube
+    target: Friar Tuck Research
+    subscribers: 69
+    actions: [comment, subscribe]
+    date: 2026-10-23
+    outcome: live
+    video: https://www.youtube.com/watch?v=aOc1P5eLcn8
+    comment: https://www.youtube.com/watch?v=aOc1P5eLcn8&lc=UgwCBVBiN0I6lcDD_qF4AaABAg
+    topic: SpaceX lockup mechanics; Dec 8 step vs cliff
+
+  - channel: youtube
+    target: Trend Match Touch
+    subscribers: 1540
+    actions: [comment, subscribe]
+    date: 2026-10-23
+    outcome: live
+    video: https://www.youtube.com/watch?v=mGCsdnKyPSs
+    comment: https://www.youtube.com/watch?v=mGCsdnKyPSs&lc=Ugx-dnPW68eL6twjFMp4AaABAg
+    notes: mixed stock/crypto daily rundown led by stock stories; ruled clean, not primarily crypto
+
+  - channel: youtube
+    target: The Cap Table - Pre IPO Podcast (97 subs) + This Week in Pre-IPO Stocks by AG Dillon & Co (919 subs)
+    actions: [comment, subscribe x2]
+    date: 2026-10-23
+    outcome: live
+    video: https://www.youtube.com/watch?v=b_41YRvHxFE
+    comment: https://www.youtube.com/watch?v=b_41YRvHxFE&lc=UgwhnxcEnVO6cTqWEZt4AaABAg
+    topic: CoreWeave 15% bonds vs $104B backlog
+
+  - channel: youtube
+    target: Semiconductor News / 3-Min Semi with Tai
+    subscribers: 89
+    actions: [subscribe]
+    comment_outcome: skipped
+    comment_reason: 'Only subscribers can comment' gate never recognized the subscription across reloads; retry in a later run
+    date: 2026-10-23
+    video: https://www.youtube.com/watch?v=ZvgvZcwH41U
+
+  - channel: youtube
+    target: Stock Moe
+    subscribers: 721000
+    actions: []
+    date: 2026-10-23
+    outcome: skipped
+    reason: over the 50K ceiling - flagged, no engagement (video https://www.youtube.com/watch?v=S97A8-Y70E4 not visited)
