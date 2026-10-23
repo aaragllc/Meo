@@ -2,7 +2,7 @@
 
 *(One filled-in copy of this template per channel surface per persona.
 The foundation rules every adapter inherits - warm sessions, policy gate,
-verbatim QC, run logging - are in `../SPEC-foundation-adapters.md`; this
+verbatim QC, run logging - are in `../../../SPEC-foundation-adapters.md`; this
 document defines only what is specific to this channel. The seven-step
 adapter contract every adapter implements: DISCOVER, FILTER, DRAFT,
 CRITIQUE, POST, VERIFY, LOG, plus the channel's follow/subscribe
@@ -66,7 +66,7 @@ primitive where the platform has one.)*
 
 ## 5. Pacing limits
 
-- Volume keys in `../config.yaml` this adapter reads: <comments_per_day,
+- Volume keys in `../../../config.yaml` this adapter reads: <comments_per_day,
   follows_per_day for this channel; the author ceiling>.
 - Intra-run gaps: <the configured randomized gap (default 2-6 min) and
   any channel-specific burst rule - e.g. thread posts minutes apart,
@@ -87,7 +87,7 @@ primitive where the platform has one.)*
 
 ## 7. Known failure modes
 
-Drawn from the taxonomy in `../SPEC-run-log.md`. List each mode this
+Drawn from the taxonomy in `../../../SPEC-run-log.md`. List each mode this
 channel has actually hit (or is known to hit), as: code - the channel-
 specific trigger - the standing response. Vocabulary in force:
 
@@ -105,7 +105,7 @@ send throttle `QUOTA-CODE-SEND`); `EDIT-FILL-REPLACE`, `EDIT-PASTE-DRIFT`,
 
 ## 8. Parity obligations
 
-From `../SPEC-parity-audit.md` - the surfaces this adapter owes for every
+From `../../../SPEC-parity-audit.md` - the surfaces this adapter owes for every
 piece, and what each must carry:
 
 - <Surface (e.g. article / episode / thread / overview post)>: <expected

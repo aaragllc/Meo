@@ -2,3 +2,4 @@
 *.mp4
 *.wav
 .DS_Store
+.write-lock

@@ -18,7 +18,7 @@ live sessions and credentials, which are re-established by the steps below.
 - `RUNBOOK.md` - how a day runs.
 - `SPEC-foundation-adapters.md`, `SPEC-pipelines.md` - Phase 1 specs (accepted v1).
 - `SPEC-studio.md` - the production studio standard, FROZEN v1.
-- `SPEC-run-log.md` - run-log schema + failure taxonomy (12 codes).
+- `SPEC-run-log.md` - run-log schema + failure taxonomy (13 codes).
 - `SPEC-parity-audit.md` + `parity-audit-2026-10-22.md` - parity definition
   and the first audit snapshot.
 - `target-registry.yaml` - every engagement target, channel, and response signal.
@@ -35,6 +35,11 @@ live sessions and credentials, which are re-established by the steps below.
 - `crons/` - the two live scheduled jobs (daily engagement run, inbox
   filing) exported as definitions; recreate them in the new environment
   with the same ids, schedules, and bodies.
+- `templates/` - the onboarding templates (persona-pack skeleton +
+  channel-adapter spec) for adding a persona or channel; see
+  `templates/README.md`. `dry-run-*.md` at the root - the most recent
+  onboarding dry-run report; read it for the gaps the last fresh-operator
+  walk found and how they were closed.
 
 ## What does NOT transfer (by design)
 
@@ -61,6 +66,18 @@ live sessions and credentials, which are re-established by the steps below.
 2. Install the two skills from `personas/that70sda/skills/` into the new
    environment's custom-skills folder.
 3. Reconnect the accounts (above) and recreate the two crons from `crons/`.
+   Recreation notes: the exported files are verbatim snapshots of the live
+   jobs - their `delivery` chat id and `metadata` (device id, originating
+   chat) belong to the OLD environment, so re-point delivery at the new
+   main chat (or drop it) and drop the metadata block; the `owner` goal
+   slug works only if the goal is recreated under the same slug. The
+   inbox-filing job also depends on a processor script that is NOT a
+   platform file: it ships in the pack at
+   `personas/that70sda/files/inbox_processor.py`. Copy it to a stable path
+   (its `state.json` lives beside it - start with an empty state), set the
+   Gmail account id at its top to the new environment's id for the persona
+   inbox, make sure the host's Gmail CLI path in it matches the new
+   environment, and point the recreated job's body at the new path.
 4. Read, in order: `POLICY.md`, `personas/that70sda/that70sda-meo-directive.md`,
    `personas/that70sda/OPERATING-LESSONS-agents.md`, `SPEC-studio.md`,
    `personas/that70sda/STATE-*.md` (newest).

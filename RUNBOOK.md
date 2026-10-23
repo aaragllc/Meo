@@ -37,5 +37,6 @@ Read config.yaml and POLICY.md first; N and toggles come from config only.
 
 One consolidated report per run in chat: per channel - targets posted (URLs),
 follows made, skips and why, any stop reason, and anything escalated for a
-human call. Per-run detail log: engagement-log-<date>.md in the operating
-goal's hidden_files.
+human call. Per-run detail log: `~/workspace/socialy-ink/logs/`
+(engagement-<date>.md; see SPEC-run-log.md - day-1 legacy logs live in the
+operating goal's hidden_files).

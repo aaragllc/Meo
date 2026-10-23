@@ -34,7 +34,8 @@ run as a framework instead of one-off manual sessions.
 - `POLICY.md` - voice rules, banned content, escalation/skip triggers, stop rules.
 - `RUNBOOK.md` - the daily run procedure, per channel.
 - Runs are executed by the daily scheduled job and reported in chat; per-run
-  logs land in the operating goal's hidden_files (engagement-log-<date>.md).
+  logs land in `logs/` in this repo (see SPEC-run-log.md; day-1 legacy logs
+  live in the operating goal's hidden_files).
 
 ## Status
 

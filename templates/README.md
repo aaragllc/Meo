@@ -37,7 +37,9 @@ exists because the worked example needed it.
    adapters, and skills all inherit from it. Anything the owner has not
    decided stays as an explicit open question in the Resolutions section -
    never silently defaulted.
-4. **Write one adapter per channel** from `channel-adapter.md`, seeded
+4. **Write one adapter per channel** from `channel-adapter.md`, into the
+   new pack at `../personas/<slug>/adapters/<channel>.md` (the template's
+   relative references are written for that destination), seeded
    from `../SPEC-foundation-adapters.md`'s channel notes where the new
    persona shares a platform with an existing one. Platform mechanics
    transfer; account facts never do.
