@@ -84,11 +84,58 @@ recorded 10/15, listen links 7 present + 7 EXC, gap register = audit
 items 1 and 4, exit 0. A /tmp copy with one YouTube id removed flips
 that cell to MISS, drops the count to 17/18, flags a NEW GAP, exit 1.
 
-### 3. Run-log validator (planned)
+### 3. socialy_runlog.py - the run-log validator (DONE)
 
-Validates run logs under logs/ against the SPEC-run-log.md schema and
-failure taxonomy (required header fields, known codes only, no
-`verification: none` paired with `success`).
+Validates run-log files against the schema and failure taxonomy in
+SPEC-run-log.md:
+
+```
+python3 tools/socialy_runlog.py [--spec SPEC_RUN_LOG_MD] FILE [FILE ...]
+```
+
+The taxonomy code list is extracted from SPEC-run-log.md section 2 at
+run time (13 codes today), never hardcoded in the tool, so the
+validator cannot drift from the spec. --spec defaults to the repo's
+SPEC-run-log.md, resolved relative to the script, so the tool runs
+from any working directory.
+
+Format contract (the encodings the validator reads): the run header is
+a fenced ```yaml block (or --- frontmatter) carrying the spec's fields
+in its flow style ([a, b] lists, {k: v} maps); action rows are a
+markdown table whose header row names the spec's fields (id, channel,
+target, action, locator, verification, outcome, notes).
+
+Exit 0 = every file conforms, 1 = any violation. Checks, by rule name:
+
+| Rule | What it catches |
+|---|---|
+| HEADER | header absent/unparseable; a required field missing (run_id, date, kind, channels, operator, config_ref, status, totals, failure_tally); run_id outside the YYYYMMDD-<kind>-<seq> format or disagreeing with the date/kind fields; kind/status outside the spec's vocabularies; malformed totals/failure_tally |
+| ROW | an action row with an empty required field (channel, target, action, locator, verification, outcome), or no action rows in the file |
+| OUTCOME | an outcome outside the spec's grammar; a failed/blocked/parked outcome with no code; success carrying a code; skipped_policy naming no policy rule |
+| VERIF_NONE | `verification: none` paired with `success` - the spec's hard rule, nothing ships unverified |
+| CODE | a code not defined in the taxonomy; UNCLASSIFIED used as blocked:/parked: (the spec allows only failed:UNCLASSIFIED), or failed:UNCLASSIFIED without the full description the spec requires in notes |
+| TALLY | the header failure_tally disagrees with the codes actually used in the action rows |
+
+One reading of check 4 worth recording: `skipped_policy` is a
+non-success outcome that names a policy rule rather than a taxonomy
+code - that is the spec's own grammar (section 1), so the validator
+requires the rule to be named (outcome qualifier or notes) instead of
+demanding a code there.
+
+Tested 2026-10-23 (fixtures in /tmp/runlog-fixtures, not shipped): a
+fully conforming sample log exits 0; five broken variants - bad
+header, empty row field, verification-none success, unknown code +
+UNCLASSIFIED-without-notes, tally mismatch - are each caught under
+exactly their own rule, exit 1.
+
+Legacy finding (reported, NOT fixed - historical logs are never
+edited): the canonical logs/ directory holds no run logs yet, and the
+two pre-schema prose records - the day-1 engagement log
+(goals/that70sda-evangelism-plan/hidden_files/engagement-log-2026-10-22.md)
+and the 2026-10-20 post-3 ship record (hidden_files/run-logs/) - both
+fail validation (no schema header, no action-row table; exit 1). They
+predate the schema, which itself carries them as legacy (SPEC-run-log
+section 1); the validator's domain is new runs written to logs/.
 
 ### 4. BOOTSTRAP wiring (planned)
 
