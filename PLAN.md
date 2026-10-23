@@ -102,6 +102,16 @@ plus follows/connects where the channel supports them.
 - **Phase 3 - scale.** Move the repo to GitHub when Ravi provides details;
   adapter template + persona-pack template so channel #5 or persona #2 is a
   fill-in exercise; only then consider multi-persona runs.
+- **Phase 4 - make it code (started 2026-10-22 on Ravi's instruction).**
+  Turn the platform's deterministic core into a tested local toolkit in the
+  repo (`tools/`): (1) draft linter - the policy gate as code (em dash,
+  tickers/cashtags, banned hype words, sign-off, subtitle and SEO limits);
+  (2) parity checker - emits the audit table from catalogue records;
+  (3) run-log validator - enforces the SPEC-run-log schema and taxonomy
+  codes; (4) wire the toolkit into BOOTSTRAP so the offline route can run
+  it with no agent account at all. The expansion track (persona #2 or
+  channel #5) is Phase 4's second half and waits on Ravi's creative call;
+  the onboarding path is already proven by the Phase 3 dry run.
 
 ## Decisions needed from Ravi
 

@@ -51,3 +51,11 @@ decisions) is surfaced first and specifically, per his priority instruction.
 - Move the platform repo to GitHub; docs + config + runbooks versioned there.
 - Adapter template + persona-pack template; dry-run onboarding of one new
   channel or persona against the templates before any live run.
+
+## Phase 4 - make it code (started 2026-10-22, Ravi's instruction)
+
+- Toolkit in `tools/`: draft linter first (the policy gate as code), tested
+  against the live prep files; then the parity checker and the run-log
+  validator; wire all of it into BOOTSTRAP for the offline route.
+- Expansion (persona #2 / channel #5) is the second half, gated on Ravi's
+  creative direction; the onboarding path is already proven.
