@@ -530,3 +530,25 @@ targets:
     date: 2026-10-23
     outcome: skipped
     reason: over the 50K ceiling - flagged, no engagement (video https://www.youtube.com/watch?v=S97A8-Y70E4 not visited)
+
+  # ---------------- X Communities (Phase 6 test, 2026-10-24 to 2026-11-06) ----------------
+  - channel: x_community
+    target: "Stock & Crypto Trading"
+    followers: ~21200
+    actions: [join, community-post]
+    date: 2026-10-23
+    outcome: live
+    post: https://x.com/That70sDa/status/2113705596725952673
+    topic: Communities test - rules allow members sharing own analysis/links; P2 innings piece posted 2026-10-23
+    url: https://x.com/i/communities/1832932064502710613
+    link_rules: allowed
+
+  - channel: x_community
+    target: "Artificial Intelligence + Tech"
+    followers: ~17200
+    actions: [join]
+    date: 2026-10-23
+    outcome: live
+    topic: Communities test - joined, no post yet; rules encourage sharing, less explicit than Stock & Crypto Trading
+    url: https://x.com/i/communities/1724390935406981529
+    link_rules: allowed-encouraged
