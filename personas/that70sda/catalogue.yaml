@@ -1,0 +1,223 @@
+# Socialy.INK - that70sda catalogue (machine-readable)
+#
+# Transcribed faithfully from parity-audit-2026-10-22.md (audit #1, records
+# as of 2026-10-22). The audit's distinctions are preserved exactly:
+# "no-record" means the records cannot prove the surface exists - it is NOT
+# "absent" - and parked listen links are accepted exceptions under Ravi's
+# 2026-10-22 parking decision, not gaps. Identifiers (URLs, video ids) come
+# from the audit's own cited sources: MEMORY.md's catalogue, the listen-link
+# batch status, and the daily run notes.
+#
+# Value vocabulary (per field):
+#   article:             Substack article URL (the trailer's audio post URL)
+#   episode:             Substack episode URL | n/a
+#   spotify:             confirmed | unconfirmed | n/a
+#   youtube:             video id | n/a
+#   x_thread:            first-tweet URL | no-record | n/a
+#   linkedin:            present | n/a
+#   article_listen_link: present | parked-exception | n/a
+#
+# This file intentionally uses a restricted YAML subset (flat records,
+# plain scalars, full-line comments) so tools/socialy_parity.py can parse
+# it with the Python standard library only. It is also valid YAML.
+
+catalogue: parity-audit-2026-10-22
+persona: that70sda
+source_audit: parity-audit-2026-10-22.md
+
+exception_provenance:
+  parked_listen_links: "Ravi directive, 2026-10-22 - the listen-link workstream is CLOSED and 7 articles are parked (accepted exceptions, not defects); do not re-flag unless Ravi reopens it."
+
+# Audit #1's YouTube headline counts 18 audio pieces (trailer + EP1-EP17),
+# but its table itemizes only the 15 articles + trailer below. EP1, EP6 and
+# EP7 are episodes whose source posts are not among the audit's 15 articles,
+# so they have no catalogue rows; they are recorded here so the checker's
+# YouTube count can reproduce the audit's 18/18 exactly.
+additional_audio:
+  - episode: EP1
+    youtube: p9GzRgCVL0s
+    note: "Counted in audit #1's YouTube headline; no article row in audit #1's table."
+  - episode: EP6
+    youtube: 8jmFgXqVvUk
+    note: "Counted in audit #1's YouTube headline; no article row in audit #1's table."
+  - episode: EP7
+    youtube: ENnVMajxXXU
+    note: "Counted in audit #1's YouTube headline; no article row in audit #1's table."
+
+pieces:
+  - id: intro
+    title: Intro (Oct 13)
+    kind: article
+    episode_no: none
+    article: https://that70sda.substack.com/p/im-born-in-the-70s-working-since
+    episode: n/a
+    spotify: n/a
+    youtube: n/a
+    x_thread: no-record
+    linkedin: present
+    article_listen_link: n/a
+  - id: record-high
+    title: Record high. Thin crowd.
+    kind: article
+    episode_no: EP2
+    article: https://that70sda.substack.com/p/record-high-thin-crowd-a-test-before
+    episode: https://that70sda.substack.com/p/record-high-thin-crowd-a-test-before-b32
+    spotify: confirmed
+    youtube: IQSxK6AQE7c
+    x_thread: no-record
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: fridays-alarm
+    title: Friday's alarm
+    kind: article
+    episode_no: EP3
+    article: https://that70sda.substack.com/p/fridays-alarm
+    episode: https://that70sda.substack.com/p/fridays-alarm-c37
+    spotify: confirmed
+    youtube: I2Jcltc66y8
+    x_thread: no-record
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: grading
+    title: Grading my own homework
+    kind: article
+    episode_no: EP4
+    article: https://that70sda.substack.com/p/grading-my-own-homework
+    episode: https://that70sda.substack.com/p/grading-my-own-homework-b15
+    spotify: confirmed
+    youtube: ManE_-xx0pU
+    x_thread: no-record
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: dashboard
+    title: Reading the dashboard
+    kind: article
+    episode_no: EP5
+    article: https://that70sda.substack.com/p/reading-the-dashboard
+    episode: https://that70sda.substack.com/p/reading-the-dashboard-f34
+    spotify: confirmed
+    youtube: JNEJZK6dSnc
+    x_thread: no-record
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: ten-links
+    title: Ten links in one chain
+    kind: article
+    episode_no: EP8
+    article: https://that70sda.substack.com/p/ten-links-in-one-chain
+    episode: https://that70sda.substack.com/p/ten-links-in-one-chain-432
+    spotify: confirmed
+    youtube: _ItwfbqYBdY
+    x_thread: https://x.com/That70sDa/status/2112413145402876372
+    linkedin: present
+    article_listen_link: present
+  - id: one-green-day
+    title: One green day after eight red ones
+    kind: article
+    episode_no: EP9
+    article: https://that70sda.substack.com/p/one-green-day-after-eight-red-ones
+    episode: https://that70sda.substack.com/p/one-green-day-after-eight-red-ones-ab5
+    spotify: confirmed
+    youtube: 96_mmbRwMsE
+    x_thread: https://x.com/That70sDa/status/2112419058713067626
+    linkedin: present
+    article_listen_link: present
+  - id: fixing-chain
+    title: Fixing my chain post
+    kind: article
+    episode_no: EP10
+    article: https://that70sda.substack.com/p/fixing-my-chain-post
+    episode: https://that70sda.substack.com/p/fixing-my-chain-post-71a
+    spotify: confirmed
+    youtube: Xp7SNrluteI
+    x_thread: https://x.com/That70sDa/status/2112441088141295754
+    linkedin: present
+    article_listen_link: present
+  - id: rotation-map
+    title: Rotation map - who's running in front tonight
+    kind: article
+    episode_no: EP11
+    article: https://that70sda.substack.com/p/whos-running-in-front-tonight-and
+    episode: https://that70sda.substack.com/p/whos-running-in-front-tonight-and-4ab
+    spotify: confirmed
+    youtube: HPiCQhIJ0ZM
+    x_thread: https://x.com/That70sDa/status/2112671933913309474
+    linkedin: present
+    article_listen_link: present
+  - id: bettors
+    title: What the bettors think about the last ten days of October
+    kind: article
+    episode_no: EP12
+    article: https://that70sda.substack.com/p/what-the-bettors-think-about-the
+    episode: https://that70sda.substack.com/p/what-the-bettors-think-about-the-ee0
+    spotify: confirmed
+    youtube: kLONmy-muzo
+    x_thread: https://x.com/That70sDa/status/2112761219853480060
+    linkedin: present
+    article_listen_link: present
+  - id: server-makers
+    title: Server makers - the guys who bolt the racks together
+    kind: article
+    episode_no: EP13
+    article: https://that70sda.substack.com/p/the-guys-who-bolt-the-racks-together
+    episode: https://that70sda.substack.com/p/the-guys-who-bolt-the-racks-together-9a2
+    spotify: confirmed
+    youtube: 5tYt5iaOCDA
+    x_thread: https://x.com/That70sDa/status/2112671539657126279
+    linkedin: present
+    article_listen_link: present
+  - id: tuition
+    title: Tuition Tuesday - when the stock falls
+    kind: article
+    episode_no: EP14
+    article: https://that70sda.substack.com/p/tuition-tuesday-when-the-stock-falls
+    episode: https://that70sda.substack.com/p/tuition-tuesday-when-the-stock-falls-d96
+    spotify: confirmed
+    youtube: XZFOcsVly9s
+    x_thread: https://x.com/That70sDa/status/2113347515340697839
+    linkedin: present
+    article_listen_link: present
+  - id: yield
+    title: The one number / yield
+    kind: article
+    episode_no: EP15
+    article: https://that70sda.substack.com/p/the-one-number-i-cant-stop-looking
+    episode: https://that70sda.substack.com/p/the-one-number-i-cant-stop-looking-1e5
+    spotify: unconfirmed
+    youtube: Dx2zEJRPxrg
+    x_thread: https://x.com/That70sDa/status/2113357812126355747
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: era-file
+    title: Two autumns / Era file
+    kind: article
+    episode_no: EP16
+    article: https://that70sda.substack.com/p/two-autumns-with-the-same-tell-and
+    episode: https://that70sda.substack.com/p/two-autumns-with-the-same-tell-and-a3e
+    spotify: unconfirmed
+    youtube: f2bzd4CMqfE
+    x_thread: https://x.com/That70sDa/status/2113366063434121693
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: rotation-p1
+    title: The safe places / rotation P1
+    kind: article
+    episode_no: EP17
+    article: https://that70sda.substack.com/p/the-safe-places-arent-safe-either
+    episode: https://that70sda.substack.com/p/the-safe-places-arent-safe-either-9d6
+    spotify: unconfirmed
+    youtube: DOZtddXTTRY
+    x_thread: https://x.com/That70sDa/status/2113378956070281631
+    linkedin: present
+    article_listen_link: parked-exception
+  - id: trailer
+    title: Trailer
+    kind: trailer
+    episode_no: trailer
+    article: https://that70sda.substack.com/p/that70s-da-trailer
+    episode: n/a
+    spotify: confirmed
+    youtube: Yxk5Y4dIr5o
+    x_thread: n/a
+    linkedin: n/a
+    article_listen_link: n/a

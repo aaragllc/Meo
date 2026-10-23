@@ -39,11 +39,50 @@ lines), and SIGNOFF searches the whole file.
 Tested 2026-10-22: the three prepped weekend posts (P2, P3, P4 humanized
 files) lint clean; a synthetic dirty draft in /tmp fired all six rules.
 
-### 2. Parity checker (planned)
+### 2. socialy_parity.py - the parity checker (DONE)
 
-Mechanizes SPEC-parity-audit.md: builds the per-piece parity table from
-the catalogue records and flags missing surfaces and stale records
-instead of a manual records pass.
+Mechanizes SPEC-parity-audit.md. Reads the machine-readable catalogue
+(`personas/that70sda/catalogue.yaml`, transcribed faithfully from
+parity-audit-2026-10-22.md) and prints the parity table (piece x surface,
+using the audit's OK / MISS / NR / EXC / n/a codes), the headline counts,
+and the computed gap register:
+
+```
+python3 tools/socialy_parity.py [CATALOGUE]
+```
+
+CATALOGUE defaults to the that70sda catalogue, resolved relative to the
+script. The catalogue uses a restricted YAML subset (flat records, plain
+scalars), parsed by a small stdlib parser in the tool, so the toolkit
+stays dependency-free; the file is also valid YAML for other consumers.
+
+Exit code semantics - the regression signal for future audits:
+
+- **0** - the computed gap register matches audit #1's baseline register
+  (or baseline gaps have only closed since), and every accepted
+  exception is in the registered set.
+- **1** - a NEW gap or an UNREGISTERED exception (something audit #1
+  does not have), or malformed catalogue data.
+
+Transcription notes (fidelity to audit #1 over live truth):
+
+- The five earliest articles' X threads are `no-record` exactly as audit
+  #1 records them (its register item 1, disposition VERIFY at audit #2),
+  even where other run notes mention thread URLs - the catalogue is the
+  audit's state, not a re-audit.
+- Audit #1's YouTube headline (18/18) spans three episodes (EP1, EP6,
+  EP7) whose source posts are not among its 15 tabled articles. They are
+  carried in the catalogue's `additional_audio` block so the count
+  reproduces exactly without inventing article rows.
+- Audit register items 2 (LinkedIn listen lines) and 3 (episode ->
+  article description links) concern surfaces the catalogue has no field
+  for; they stay prose-only in the audit files.
+
+Tested 2026-10-22: the shipped catalogue reproduces audit #1 exactly -
+16 pieces, article -> episode 14/14, YouTube 18/18, LinkedIn 15/15, X
+recorded 10/15, listen links 7 present + 7 EXC, gap register = audit
+items 1 and 4, exit 0. A /tmp copy with one YouTube id removed flips
+that cell to MISS, drops the count to 17/18, flags a NEW GAP, exit 1.
 
 ### 3. Run-log validator (planned)
 
