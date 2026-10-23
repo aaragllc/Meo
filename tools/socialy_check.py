@@ -85,6 +85,14 @@ def check_ship(files):
                 print(f"  PLACEHOLDER line {i}: {line}")
         else:
             print("  placeholders: none")
+        long_tweets = [(i, len(line), line.strip()[:60]) for i, line in body_lines(path)
+                       if re.match(r"^\d+/ ", line) and len(line) > 280]
+        if long_tweets:
+            failures += 1
+            for i, n, line in long_tweets:
+                print(f"  TWEET LENGTH line {i}: {n} chars > 280: {line}")
+        else:
+            print("  tweet lengths: all <= 280")
         print(f"  subtitle marker: {'present' if has_subtitle else 'absent'}; "
               f"SEO block: {'present' if has_seo else 'absent'}")
     print(f"SHIP GATE: {'PASS' if failures == 0 else 'FAIL'}")

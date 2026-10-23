@@ -109,3 +109,10 @@ SPEC-run-log.md appears here.
 - **L-22 | Animation is a gate | 2026-10-20/21 (Ravi).** Every video
   passes a frame-change check; a static render fails regardless of
   audio. Enforced: CODE (qa_frames.py) + healing-table re-render.
+- **L-23 | Ship-time additions need surface checks | 2026-10-23
+  (Meo's error).** The Meta tweet added at ship ran 59 characters over
+  X's 280 limit and stopped the thread at 6 of 11. Rule: any text
+  added or changed at ship time gets the surface's mechanical checks
+  (length, lint, placeholders) before it reaches a composer - the
+  prep-time checks no longer cover it. Enforced: CODE (ship gate now
+  fails any numbered tweet line over 280 chars) + this entry.
