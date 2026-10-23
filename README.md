@@ -36,6 +36,12 @@ run as a framework instead of one-off manual sessions.
 - Runs are executed by the daily scheduled job and reported in chat; per-run
   logs land in `logs/` in this repo (see SPEC-run-log.md; day-1 legacy logs
   live in the operating goal's hidden_files).
+- `tools/socialy_lint.py` - the draft linter (policy gate as code; runs on
+  every draft before it ships).
+- `tools/socialy_parity.py` - the parity checker (catalogue vs the audit
+  register; runs whenever the catalogue changes and at each weekly audit).
+- `tools/socialy_runlog.py` - the run-log validator (SPEC-run-log.md schema
+  and taxonomy; runs on every run log before it is filed in `logs/`).
 
 ## Status
 

@@ -137,11 +137,17 @@ fail validation (no schema header, no action-row table; exit 1). They
 predate the schema, which itself carries them as legacy (SPEC-run-log
 section 1); the validator's domain is new runs written to logs/.
 
-### 4. BOOTSTRAP wiring (planned)
+### 4. BOOTSTRAP wiring (DONE)
 
-A single entry point that runs the toolkit's checks in order for the
-offline route, so a fresh environment verifies itself with no agent
-account involved.
+BOOTSTRAP.md carries the toolkit in its transfer inventory, in the
+new-account stand-up parity step, and in a "The toolkit in daily
+operation" section that states exactly when each tool runs: the linter
+on every draft before it ships (nonzero exit blocks the ship), the
+parity checker whenever the catalogue changes and at each weekly audit
+(a NEW GAP exit means stop and reconcile), and the validator on every
+run log before it is filed in `logs/`. All three are stdlib-only, so a
+fresh environment - Muse account or fully offline - runs them with no
+setup beyond the repo itself.
 
 ## Known ambiguities in the rule sources
 

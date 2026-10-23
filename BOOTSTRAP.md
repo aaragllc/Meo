@@ -40,6 +40,14 @@ live sessions and credentials, which are re-established by the steps below.
   `templates/README.md`. `dry-run-*.md` at the root - the most recent
   onboarding dry-run report; read it for the gaps the last fresh-operator
   walk found and how they were closed.
+- `tools/` - the Phase 4 toolkit: the platform's deterministic checks as
+  runnable code (Python 3, standard library only - no install step).
+  `tools/socialy_lint.py` (draft linter: the policy gate as code),
+  `tools/socialy_parity.py` (parity checker against
+  `personas/that70sda/catalogue.yaml`), `tools/socialy_runlog.py`
+  (run-log validator against `SPEC-run-log.md`). See `tools/README.md`
+  for each tool's rules and exit codes, and "The toolkit in daily
+  operation" below for when each one runs.
 
 ## What does NOT transfer (by design)
 
@@ -81,8 +89,14 @@ live sessions and credentials, which are re-established by the steps below.
 4. Read, in order: `POLICY.md`, `personas/that70sda/that70sda-meo-directive.md`,
    `personas/that70sda/OPERATING-LESSONS-agents.md`, `SPEC-studio.md`,
    `personas/that70sda/STATE-*.md` (newest).
-5. Verify parity against `parity-audit-*.md` (newest) before publishing
-   anything new.
+5. Verify parity before publishing anything new: read `parity-audit-*.md`
+   (newest), then run the toolkit against the shipped state -
+   `python3 tools/socialy_parity.py` (exit 0 = the catalogue still
+   matches the audit register; exit 1 = a new gap or unregistered
+   exception - reconcile against the register before shipping) and
+   `python3 tools/socialy_runlog.py <log file>` on any run logs you
+   inherit. The full toolkit routine is under "The toolkit in daily
+   operation" below.
 6. Non-negotiables from day one: never attach the owner's real name,
    employer, or identity to the persona; never mention AI/automation in
    public persona content; no em dash character in persona writing (spaced
@@ -97,6 +111,34 @@ audit standing, run-log taxonomy adopted, studio frozen; Phase 3 = this
 repo's migration to GitHub + adapter/persona-pack templates + onboarding
 dry run). The specs are written to be implemented against; the failure
 taxonomy in `SPEC-run-log.md` is the test plan's seed list.
+
+## The toolkit in daily operation
+
+The three tools in `tools/` are not optional extras - they are how the
+written rules get enforced day to day. All three are Python 3 standard
+library only: no install step, no dependencies, which is what makes the
+offline route work. Run them from the repo root.
+
+- **Linter - on every post or thread draft, before it ships.**
+  `python3 tools/socialy_lint.py <file...>`
+  Exit 0 = clean. A nonzero exit BLOCKS the ship: fix the draft (em dash,
+  ticker, hype word, missing sign-off, over-length subtitle or SEO
+  field) and re-run until it passes. Comments lint with
+  `--kind comment` (sign-off exempt).
+- **Parity checker - whenever the catalogue changes, and at each weekly
+  audit.**
+  `python3 tools/socialy_parity.py`
+  Exit 0 = the computed gap register matches the audit baseline. A NEW
+  GAP exit (1) means stop and reconcile against the audit register
+  (`SPEC-parity-audit.md` + the newest `parity-audit-*.md`): either the
+  catalogue is wrong, or a surface genuinely regressed and the register
+  needs a new entry with a disposition.
+- **Run-log validator - on every run log, before it is filed in `logs/`.**
+  `python3 tools/socialy_runlog.py <log file>`
+  Exit 0 = the log conforms to `SPEC-run-log.md` (header, action rows,
+  taxonomy codes, tally). A nonconforming log gets fixed at write time,
+  not later - the weekly reporting counts these codes, and a malformed
+  log silently corrupts the counts.
 
 ## Export provenance
 
