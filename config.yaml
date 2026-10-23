@@ -36,3 +36,25 @@ safety:
   stop_on_platform_warning: true  # any warning/limit/CAPTCHA ends that channel's run
   never_circumvent_blocks: true
   verify_live_after_post: true    # every post is read back live before it counts
+
+growth:                            # Phase 6 - growth audit levers (approved 2026-10-23)
+  substack_recommendations:        # recommend-first graph, warm contacts only
+    - Rock and Turner
+    - CappNotes
+    - Systematic Strategies
+    - Strategitz
+    - Stock Market Moods
+    - Broad Spectrum Finance
+    - The Innermost Loop
+    - Tech Trends
+  substack_tags: [AI, Artificial Intelligence, Stock Market, Semiconductors, Federal Reserve, Earnings, Technology]
+  notes_per_day: 1                 # 1 original Note in the engagement run + restacks with comment
+  shorts_per_episode: 1            # vertical 30-60s cut from the episode cards, captions burned in
+  youtube_title_search_clause: true  # YouTube titles carry a plain search clause after the episode title
+  episode_follow_line: "If this was useful, follow the show - a new episode lands with every piece."
+  playlists: [The Rotation, The Scorecard, Era File, Tuition Tuesday, Start Here]
+  x_communities_test: {start: 2026-10-24, review: 2026-11-06, communities_joined: 2}
+  next_day_quote_post: true        # quote-post yesterday's thread with one fresh line, when the theme allows
+  linkedin_follower_milestone: 150 # page newsletter eligibility threshold; invites NEVER used
+  apple_podcasts: claim            # claim the existing listing; no identity exposure beyond the RSS
+  growth_ledger_in_sunday_report: true   # subs/followers by channel + attributed sources; 4-week cut rule

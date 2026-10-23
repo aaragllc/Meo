@@ -132,3 +132,16 @@ check at build time: HEALTHY (parity 0 new gaps, 13/13 codes covered).
 Remaining Phase 5 polish (build when idle): BOOTSTRAP wiring of the gate
 runner into the daily-operation section; ops aggregator over run logs
 for the Sunday ops-health numbers.
+
+## Phase 6 - Growth industrialization (approved 2026-10-23, Ravi)
+
+The growth audit (goal files/growth-audit-2026-10-23.md) built as platform,
+not one-offs: recommendations graph ON with the warm eight; tag taxonomy +
+Notes cadence + quote-post + Communities test wired into the engagement
+run; Shorts pipeline (build_shorts.py) at 1/episode; YouTube playlists,
+search-clause titles, pinned comments, end screens in the upload path;
+episode follow line in the metadata template; LinkedIn milestone 150
+tracked in the Sunday ledger; Apple Podcasts claim attempted (identity
+wall = Ravi's call); welcome email stays Ravi's manual paste. Every lever
+measured in the Sunday growth ledger; a lever producing nothing in 4
+weeks gets cut.
