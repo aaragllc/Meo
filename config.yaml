@@ -65,5 +65,5 @@ growth:                            # Phase 6 - growth audit levers (approved 202
   x_communities_test: {start: 2026-10-24, review: 2026-11-06, communities_joined: 2}
   next_day_quote_post: true        # quote-post yesterday's thread with one fresh line, when the theme allows
   linkedin_follower_milestone: 150 # page newsletter eligibility threshold; invites NEVER used
-  apple_podcasts: claim            # claim the existing listing; no identity exposure beyond the RSS
+  apple_podcasts: live             # claimed 2026-10-23, status Available: https://podcasts.apple.com/us/podcast/that70s-da/id6826468869 (Substack link-back Done)
   growth_ledger_in_sunday_report: true   # subs/followers by channel + attributed sources; 4-week cut rule
