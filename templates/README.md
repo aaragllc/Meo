@@ -26,6 +26,12 @@ exists because the worked example needed it.
   `../SPEC-run-log.md`), parity obligations (from
   `../SPEC-parity-audit.md`), and section 10 - the SEO surface and
   growth wiring required by the project rule in `../POLICY.md`.
+- `personal-network-intro.md` - the owner-sent launch note: five
+  beats (arc, name, giving back + the "not this", one hero link,
+  channels + feedback ask), the slot table, and a short DM variant.
+  The platform prepares it; only the owner ever sends it, by hand,
+  to people who already know them - it is never automated and never
+  appears on a persona surface.
 
 ## How onboarding runs
 
@@ -54,6 +60,10 @@ exists because the worked example needed it.
 7. **Dry-run before live:** walk a full publish and a full engagement run
    in draft only, verify the QC and logging steps work, then start live
    operation at the young-account volume in `../config.yaml`.
+8. **Prepare the launch note:** fill `personal-network-intro.md` and
+   file the instance in the new pack's `files/network-intro.md`. The
+   operator prepares it; only the owner sends it, by hand - it is the
+   persona's warm start, not a platform send.
 
 ## What "done" looks like - the worked example
 
@@ -67,6 +77,7 @@ exists because the worked example needed it.
 | `files/README.md` (the folder it describes) | `personas/that70sda/files/` (post template, welcome draft, contributor prompt) |
 | `skills/README.md` (the folder it describes) | `personas/that70sda/skills/` (publishing + TTS narration) |
 | `channel-adapter.md` (x5 surfaces) | the channel notes in `../SPEC-foundation-adapters.md` (X, LinkedIn page, Substack, YouTube; Spotify as the monitored-only variant) |
+| `personal-network-intro.md` | `personas/that70sda/files/network-intro.md` |
 
 Where a filled instance and its template disagree in structure, the
 template is the one to fix - it is supposed to be the shape the next

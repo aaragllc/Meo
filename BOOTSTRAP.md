@@ -38,9 +38,9 @@ live sessions and credentials, which are re-established by the steps below.
 - `crons/` - the two live scheduled jobs (daily engagement run, inbox
   filing) exported as definitions; recreate them in the new environment
   with the same ids, schedules, and bodies.
-- `templates/` - the onboarding templates (persona-pack skeleton +
-  channel-adapter spec) for adding a persona or channel; see
-  `templates/README.md`. `dry-run-*.md` at the root - the most recent
+- `templates/` - the onboarding templates (persona-pack skeleton,
+  channel-adapter spec, personal-network intro) for adding a persona
+  or channel; see `templates/README.md`. `dry-run-*.md` at the root - the most recent
   onboarding dry-run report; read it for the gaps the last fresh-operator
   walk found and how they were closed.
 - `tools/` - the Phase 4 toolkit: the platform's deterministic checks as

@@ -113,6 +113,7 @@ verified standing thereafter.
 | LinkedIn follower milestone tracking toward newsletter eligibility | WK | weekly | `growth.linkedin_follower_milestone` | Sunday ledger |
 | Cross-promo footnote block on every LinkedIn post; cross-links inside every article/episode/thread | PUB | every piece | persona pack template | parity audit |
 | Welcome email installed (approved text; verified saved) | ONCE | standing | persona pack files | STATE snapshot |
+| Personal-network intro (owner-sent launch note; platform prepares, owner sends by hand) | ONCE | at persona launch; refreshed only at milestones, only to prior engagers | `templates/personal-network-intro.md`; filled instance in persona pack `files/` | launch report; Sunday ledger (replies + attributed subs) |
 | Apple Podcasts claim of the RSS listing | ONCE | standing once claimed | `growth.apple_podcasts` | Sunday report until live |
 | Content repository regeneration (full-text PDF of all articles) | WK | Sunday cycle | tools/socialy_repository.py | Sunday report |
 | Growth ledger with the 4-week cut rule (a lever producing nothing in 4 weeks gets cut) | WK | Sunday report | `growth.growth_ledger_in_sunday_report` | the ledger itself |
