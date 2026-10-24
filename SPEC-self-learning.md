@@ -61,6 +61,7 @@ what this table replaces.
 | Parity gap (catalogue vs live) | parity checker / weekly audit | open a repair entry in the audit gap register; fix records immediately when the gap is clerical | checker exit 0 | gap is on a live surface - schedule the fix ship |
 | Intake miss (drop un-acked > 2h) | watchdog poll of inbox + acks | run the intake consumption + ack on the spot | ack present in acks/ | drop malformed - ack says what's missing |
 | Backup miss (archive stale > 26h) | watchdog reads the backup state file | re-run archive + Drive upload (standing permission) | byte-size verified in Drive | upload fails twice |
+| Major change unbacked | sentinel (2h) polls git log vs backup state, classifying the range by the POLICY backups rule | run the intraday archive + Drive upload (standing permission) | byte-size verified; state file HEAD = repo HEAD | upload fails twice (nightly + watchdog floor remains) |
 | VERIF-X-HV / any platform warning | in-run observation | NONE - full stop of that channel, report first | n/a | always escalates; never auto-retried |
 | VERIF-LI-CHECK (LinkedIn security check) | login loop observed | NONE - never automated password retry; Ravi manual takeover | warm session persists | always escalates |
 | Refresh flips a claim's direction | ship-day verification | hold the piece; ack question to Stocky + same-day flag to Ravi | Stocky's -v2 consumed | n/a - this IS the escalation path |
@@ -94,6 +95,11 @@ before every publish sequence; `state` mode in the Sunday review.
   backup state file for staleness; executes the two standing remedies
   in the healing table (intake consumption, backup re-run); reports
   ONLY on a failure or a heal - silence means healthy.
+- **Major-backup sentinel (every 2h):** enforces the POLICY.md
+  backups rule - an intraday archive for any major commit settled
+  more than 45 minutes with no backup at its HEAD (clean tree
+  required, 2-hour coalescing window). Silent unless it uploads or
+  fails twice.
 - **Sunday ops-health (inside the weekly review):** failures by code
   for the week, heals vs escalations, lessons registered/promoted,
   prose-only lessons aging, and the gate runner's state output. This

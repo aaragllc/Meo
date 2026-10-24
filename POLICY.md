@@ -62,3 +62,33 @@ Where something does not apply to a channel (feed-driven channels
 have no SEO fields, for example), the adapter doc records N/A with a
 one-line reason and states what applies instead. An adapter with an
 unmapped surface does not ship.
+
+## Backups - the project rule (Ravi, 2026-10-23)
+
+The nightly backup is the floor, not the ceiling. A MAJOR change
+earns an intraday backup the same day, at the next logical
+checkpoint - never mid-work, and not for every commit.
+
+A change is MAJOR when it alters how the platform operates or what
+losing it would cost: a new or changed SPEC, POLICY, config or
+template; a tool or gate change; a new channel adapter or persona
+pack; a publishing/engagement routine change; a catalogue or
+registry restructure; a security, identity or access change; a
+first-time integration or migration (new repo, new service).
+Routine run logs, daily engagement records, ordinary registry
+additions and content drafts are NOT major - they ride the nightly
+backup.
+
+The checkpoint is the moment the workstream is complete, verified
+and committed with a clean tree. Checkpoints coalesce: at most one
+intraday backup per 2 hours; anything landing inside the window
+rides the next one. The nightly backup always runs regardless.
+
+Enforcement is layered: (1) whoever finishes a major change runs
+the backup at its checkpoint; (2) the major-backup sentinel (every
+2 hours) heals any major commit settled more than 45 minutes with
+no archive at its HEAD, clean tree required - a dirty tree means
+the checkpoint has not closed; (3) the daily watchdog's 26-hour
+staleness check remains the floor. Retention (the GFS pins) is
+unchanged: intraday archives live in the in-flight slots and never
+evict a day's pin.
