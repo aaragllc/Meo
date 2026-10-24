@@ -116,6 +116,12 @@ SPEC-run-log.md appears here.
   (length, lint, placeholders) before it reaches a composer - the
   prep-time checks no longer cover it. Enforced: CODE (ship gate now
   fails any numbered tweet line over 280 chars) + this entry.
+  EXTENDED 2026-10-24 (L-23b): the trap has a second face - the live
+  article URL (~64 chars) replaces [ARTICLE LINK] at ship time, so a
+  tweet that fits at prep can break at post (caught on the P4 thread:
+  291 chars with the URL in). The gate now measures tweet length with
+  every placeholder substituted by a 64-char proxy URL. Enforced: CODE
+  (socialy_check.py URL_PROXY) + this entry.
 - **L-24 | Narration scripts are their own lint kind | 2026-10-23/24
   (Meo).** The ship gate's written-sign-off rule ("- That70s Da.")
   false-positives on episode narration scripts, which must carry the

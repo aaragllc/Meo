@@ -173,6 +173,8 @@ setup beyond the repo itself.
   line (read from config.yaml `growth.episode_follow_line`) and an
   article link; a declared `YouTube title:` line must carry its " - "
   search clause; article prep (a file with a subtitle marker) with no
-  SEO block fails. `state` = platform self-check (parity, run-log
+  SEO block fails. Numbered tweet lines are measured with every
+  placeholder substituted by a 64-char proxy URL, since the live link
+  replaces [ARTICLE LINK] at ship time (L-23b). `state` = platform self-check (parity, run-log
   validation for post-2026-10-23 logs, LESSONS.md coverage of every
   taxonomy code). Run by the daily ops watchdog and the Sunday review.

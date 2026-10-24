@@ -43,6 +43,12 @@ PLACEHOLDER_RES = [
     re.compile(r"\bTODO\b|\bTBD\b|\bXXX+\b"),
     re.compile(r"\[ARTICLE LINK\]|\[LINK\]|\[URL\]"),
 ]
+# L-23 extension: the live article URL (~64 chars for the Substack pattern)
+# replaces [ARTICLE LINK] at ship time, so a tweet that fits at prep can
+# break at post. Tweet lengths are measured with every placeholder
+# substituted by a 64-char proxy; the placeholder itself is still reported
+# (and filled) separately.
+URL_PROXY = "x" * 64
 SUBTITLE_RE = re.compile(r"^\s*#?\s*Subtitle\b", re.IGNORECASE)
 SEO_BLOCK_RE = re.compile(r"SEO title", re.IGNORECASE)
 CODE_RE = re.compile(r"`([A-Z][A-Z0-9]+(?:-[A-Z0-9]+)+)`")
@@ -114,8 +120,15 @@ def check_ship(files):
                 print(f"  PLACEHOLDER line {i}: {line}")
         else:
             print("  placeholders: none")
-        long_tweets = [(i, len(line), line.strip()[:60]) for i, line in body_lines(path)
-                       if re.match(r"^\d+/ ", line) and len(line) > 280]
+        long_tweets = []
+        for i, line in body_lines(path):
+            if not re.match(r"^\d+/ ", line):
+                continue
+            measured = line
+            for rx in PLACEHOLDER_RES:
+                measured = rx.sub(URL_PROXY, measured)
+            if len(measured) > 280:
+                long_tweets.append((i, len(measured), line.strip()[:60]))
         if long_tweets:
             failures += 1
             for i, n, line in long_tweets:
