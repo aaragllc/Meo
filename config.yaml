@@ -61,6 +61,7 @@ growth:                            # Phase 6 - growth audit levers (approved 202
     The Scorecard: https://www.youtube.com/playlist?list=PLR98d0mPNSnE
   youtube_shorts:
     ep18: https://youtube.com/shorts/iyobfptxGoY
+  youtube_advanced_features: wait_for_channel_history  # Ravi 2026-10-23: NO video selfie or ID verification for the persona. Comment pinning (comments already posted on all 19 videos) and clickable Community links unlock via channel history; pin in a follow-up session once eligibility shows.
   x_communities_test: {start: 2026-10-24, review: 2026-11-06, communities_joined: 2}
   next_day_quote_post: true        # quote-post yesterday's thread with one fresh line, when the theme allows
   linkedin_follower_milestone: 150 # page newsletter eligibility threshold; invites NEVER used
