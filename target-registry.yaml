@@ -394,6 +394,8 @@ targets:
     post: https://stockmarketmoods.substack.com/p/what-companies-are-saying-so-far
     comment: https://stockmarketmoods.substack.com/p/what-companies-are-saying-so-far/comment/368426613
     followup: free subscribe failed - Substack returned 'Something went wrong' (site error); retry in a later run
+    response: author_liked_comment
+    response_note: Stock Market Moods liked the persona's comment (Substack reaction email, 2026-10-23T20:47:23Z) - same comment as the day-2 run, third reciprocal engagement across Substack targets; came the same day the persona added them to Substack recommendations
 
   - channel: substack
     target: Broad Spectrum Finance

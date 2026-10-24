@@ -53,6 +53,14 @@ growth:                            # Phase 6 - growth audit levers (approved 202
   youtube_title_search_clause: true  # YouTube titles carry a plain search clause after the episode title
   episode_follow_line: "If this was useful, follow the show - a new episode lands with every piece."
   playlists: [The Rotation, The Scorecard, Era File, Tuition Tuesday, Start Here]
+  youtube_playlists:               # created 2026-10-23 (growth session)
+    The Rotation: https://www.youtube.com/playlist?list=PLbw5EO8UhqSQ
+    Start Here: https://www.youtube.com/playlist?list=PLBVNfb-kK8Do
+    Era File: https://www.youtube.com/playlist?list=PLQpTXBSxsijQ
+    Tuition Tuesday: https://www.youtube.com/playlist?list=PLRG_vmj1ObdI
+    The Scorecard: https://www.youtube.com/playlist?list=PLR98d0mPNSnE
+  youtube_shorts:
+    ep18: https://youtube.com/shorts/iyobfptxGoY
   x_communities_test: {start: 2026-10-24, review: 2026-11-06, communities_joined: 2}
   next_day_quote_post: true        # quote-post yesterday's thread with one fresh line, when the theme allows
   linkedin_follower_milestone: 150 # page newsletter eligibility threshold; invites NEVER used
