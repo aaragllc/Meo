@@ -66,6 +66,13 @@ BASELINE_GAPS = {
     ("yield", "spotify", "NR"),
     ("era-file", "spotify", "NR"),
     ("rotation-p1", "spotify", "NR"),
+    # Registered after audit #1, at the rotation-p2 ship (2026-10-23):
+    # Spotify unconfirmed in the records is expected RSS lag for the
+    # newest episode, already carried as an audit #2 VERIFY item (the
+    # audit #2 gap register lists Spotify EP15-EP18 unconfirmed). Same
+    # disposition as register item 4; it leaves the register when audit
+    # #2 verifies the landing or closes the item.
+    ("rotation-p2", "spotify", "NR"),
 }
 
 # Audit #1's accepted exceptions in catalogue terms: (piece id, surface).

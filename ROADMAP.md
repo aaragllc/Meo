@@ -62,3 +62,7 @@ decisions) is surfaced first and specifically, per his priority instruction.
 
 - Phase 5 (2026-10-23): self-learning/self-healing layer - see PLAN.md
   and SPEC-self-learning.md. Core live; polish items build when idle.
+- Phase 6 addendum (2026-10-23): SEO + growth industrialized as a
+  project rule - SPEC-seo-growth.md, the rule in POLICY.md and in the
+  channel-onboarding path (adapter template section 10), ship-gate
+  SEO/growth checks live; applies to every new channel at onboarding.

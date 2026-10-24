@@ -124,3 +124,26 @@ piece, and what each must carry:
   actually appears>. Never circumvent, never retry through it. Record the
   stop in the run log with its taxonomy code and surface it in the run
   report, warnings first.
+
+## 10. SEO surface and growth wiring (project rule - required before first post)
+
+Per POLICY.md ("SEO and growth - the project rule", Ravi 2026-10-23)
+and `../../../SPEC-seo-growth.md`: this adapter does not ship until
+every line below is filled in - or marked N/A with a one-line reason.
+
+- **SEO surface mapped:** <each search-facing field this channel has
+  (title, description, subtitle, tags, slug, directory metadata) with
+  its limit and where it is set (at prep / at publish) - or "N/A -
+  <reason, e.g. feed-driven channel; discovery is replies and shares>"
+  plus what applies instead>.
+- **Growth actions wired:** <which techniques from SPEC-seo-growth.md
+  section 2 this channel carries, and where they live (publishing
+  path / engagement routine / weekly cycle) - or N/A with a reason>.
+- **Config entries:** <the `config.yaml` keys this adapter reads for
+  SEO/growth (tag taxonomy, toggles, milestones)>.
+- **Ship-gate checks:** <the automatable fields `tools/socialy_check.py
+  ship` verifies for this channel's prep files - or "none automatable;
+  verified live at publish" >.
+- **Ledger measurement:** <the subscriber/follower number this channel
+  contributes to the Sunday growth ledger, and the attribution the
+  platform exposes, if any>.

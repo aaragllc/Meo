@@ -23,8 +23,9 @@ exists because the worked example needed it.
 - `channel-adapter.md` - one filled copy per channel surface: identity
   and account, session model, publish flow, engagement actions, pacing,
   verification, known failure modes (by taxonomy code, from
-  `../SPEC-run-log.md`), and parity obligations (from
-  `../SPEC-parity-audit.md`).
+  `../SPEC-run-log.md`), parity obligations (from
+  `../SPEC-parity-audit.md`), and section 10 - the SEO surface and
+  growth wiring required by the project rule in `../POLICY.md`.
 
 ## How onboarding runs
 
@@ -43,8 +44,14 @@ exists because the worked example needed it.
    from `../SPEC-foundation-adapters.md`'s channel notes where the new
    persona shares a platform with an existing one. Platform mechanics
    transfer; account facts never do.
-5. **Install the skills** per `persona-pack/skills/README.md`.
-6. **Dry-run before live:** walk a full publish and a full engagement run
+5. **Complete the adapter's section 10 before any first post**
+   (project rule, `../POLICY.md`): the channel's SEO surface mapped
+   (fields, limits, where set), growth actions wired, config entries
+   present, ship-gate checks where automatable, and its number in the
+   Sunday growth ledger - or N/A with a one-line reason per item. An
+   adapter with an unmapped surface does not ship.
+6. **Install the skills** per `persona-pack/skills/README.md`.
+7. **Dry-run before live:** walk a full publish and a full engagement run
    in draft only, verify the QC and logging steps work, then start live
    operation at the young-account volume in `../config.yaml`.
 

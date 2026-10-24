@@ -77,6 +77,12 @@ Transcription notes (fidelity to audit #1 over live truth):
 - Audit register items 2 (LinkedIn listen lines) and 3 (episode ->
   article description links) concern surfaces the catalogue has no field
   for; they stay prose-only in the audit files.
+- One post-audit register entry exists: ("rotation-p2", "spotify", "NR"),
+  registered at the piece's 2026-10-23 ship with the disposition
+  "expected RSS lag - VERIFY at audit #2", the same disposition as
+  register item 4 (which already names Spotify EP15-EP18 unconfirmed
+  for audit #2). It is marked as post-audit in the tool's BASELINE_GAPS
+  comment and leaves the register at audit #2.
 
 Tested 2026-10-22: the shipped catalogue reproduces audit #1 exactly -
 16 pieces, article -> episode 14/14, YouTube 18/18, LinkedIn 15/15, X
@@ -161,6 +167,11 @@ setup beyond the repo itself.
 
 - socialy_check.py (Phase 5): the gate runner. `ship FILE...` = pre-ship
   gate (lint + unresolved-placeholder scan + subtitle/SEO presence);
-  exit 1 blocks the ship. `state` = platform self-check (parity, run-log
+  exit 1 blocks the ship. Since 2026-10-23 it also runs the
+  SPEC-seo-growth checks: episode metadata files must carry the follow
+  line (read from config.yaml `growth.episode_follow_line`) and an
+  article link; a declared `YouTube title:` line must carry its " - "
+  search clause; article prep (a file with a subtitle marker) with no
+  SEO block fails. `state` = platform self-check (parity, run-log
   validation for post-2026-10-23 logs, LESSONS.md coverage of every
   taxonomy code). Run by the daily ops watchdog and the Sunday review.

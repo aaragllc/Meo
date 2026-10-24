@@ -145,3 +145,32 @@ tracked in the Sunday ledger; Apple Podcasts claim attempted (identity
 wall = Ravi's call); welcome email stays Ravi's manual paste. Every lever
 measured in the Sunday growth ledger; a lever producing nothing in 4
 weeks gets cut.
+
+## Phase 6 addendum - SEO and growth as a project rule (2026-10-23, Ravi)
+
+Ravi's directive: get SEO right from the get-go and industrialize every
+audience growth technique in the platform, applied to every new channel
+as appropriate - a project rule, not a that70sda habit. Built same day:
+
+- `SPEC-seo-growth.md`: per-surface SEO fields, limits, and where each
+  is set (Substack article, podcast episode, YouTube; X and LinkedIn
+  recorded as feed-driven with what applies instead; Spotify
+  monitored-only), the growth techniques inventory with owner
+  (publishing path / engagement routine / weekly cycle) and cadence,
+  and the Sunday reporting requirement: an SEO-compliance line plus
+  the growth ledger.
+- Project rule written into `POLICY.md` and into the onboarding path:
+  section 10 of `templates/channel-adapter.md` (SEO surface + growth
+  wiring, or N/A with a reason, required before an adapter's first
+  post) and step 5 of `templates/README.md`; `BOOTSTRAP.md` carries
+  the spec in its transfer inventory.
+- Ship gate extended (`tools/socialy_check.py ship`): episode metadata
+  must carry the follow line and an article link; a declared YouTube
+  title must carry its " - " search clause; article prep with a
+  subtitle marker but no SEO block fails. Verified on fixtures (good
+  metadata passes, clause-less title fails) and on live prep (EP19
+  metadata correctly fails on its not-yet-added follow line).
+- State check HEALTHY after registering one pre-existing parity item:
+  rotation-p2's Spotify-unconfirmed cell, an expected RSS-lag VERIFY
+  item for audit #2, now carries its disposition in the parity
+  register (see tools/README.md transcription notes).

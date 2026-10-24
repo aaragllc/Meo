@@ -16,6 +16,9 @@ live sessions and credentials, which are re-established by the steps below.
   legal/regulatory, identity probing, heated exchanges, personal-finance
   advice), identity protection, human pacing, stop-on-any-platform-warning.
 - `RUNBOOK.md` - how a day runs.
+- `SPEC-seo-growth.md` - the SEO fields/limits per surface and the growth
+  techniques inventory, plus the project rule every new channel adapter
+  satisfies before its first post (also in `POLICY.md`).
 - `SPEC-foundation-adapters.md`, `SPEC-pipelines.md` - Phase 1 specs (accepted v1).
 - `SPEC-studio.md` - the production studio standard, FROZEN v1.
 - `SPEC-run-log.md` - run-log schema + failure taxonomy (13 codes).

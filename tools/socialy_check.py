@@ -6,8 +6,12 @@ One command that runs the platform's codified checks.
 Usage:
     python3 socialy_check.py ship FILE [FILE ...]
         Pre-ship gate: lints every file (socialy_lint.py), scans body
-        lines for unresolved placeholders, and reports subtitle/SEO
-        presence on article prep files. Exit 1 blocks the ship.
+        lines for unresolved placeholders, reports subtitle/SEO
+        presence on article prep files, and runs the SPEC-seo-growth
+        checks: episode metadata must carry the follow line and an
+        article link, a declared YouTube title must carry its " - "
+        search clause, and article prep (a file with a subtitle
+        marker) must carry an SEO block. Exit 1 blocks the ship.
 
     python3 socialy_check.py state
         Platform self-check: parity checker against the live catalogue,
@@ -43,6 +47,26 @@ SUBTITLE_RE = re.compile(r"^\s*#?\s*Subtitle\b", re.IGNORECASE)
 SEO_BLOCK_RE = re.compile(r"SEO title", re.IGNORECASE)
 CODE_RE = re.compile(r"`([A-Z][A-Z0-9]+(?:-[A-Z0-9]+)+)`")
 
+# SPEC-seo-growth.md ship checks. The follow line's source of truth is
+# config.yaml (growth.episode_follow_line); the constant is a fallback.
+CONFIG = os.path.join(ROOT, "config.yaml")
+FOLLOW_LINE_FALLBACK = ("If this was useful, follow the show - "
+                        "a new episode lands with every piece.")
+SUBTITLE_LINE_RE = re.compile(r"^\s*#?\s*Subtitle\b", re.IGNORECASE)
+YT_TITLE_RE = re.compile(r"^\s*#?\s*YouTube title\s*:\s*(.+?)\s*$",
+                         re.IGNORECASE | re.MULTILINE)
+ARTICLE_LINE_RE = re.compile(r"^Article:\s*\S+", re.MULTILINE)
+ARTICLE_URL_RE = re.compile(r"https?://\S*substack\.com/p/\S+")
+
+
+def load_follow_line():
+    try:
+        cfg = open(CONFIG, encoding="utf-8").read()
+    except OSError:
+        return FOLLOW_LINE_FALLBACK
+    m = re.search(r'episode_follow_line:\s*"([^"]+)"', cfg)
+    return m.group(1) if m else FOLLOW_LINE_FALLBACK
+
 
 def run(cmd):
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -59,6 +83,7 @@ def body_lines(path):
 
 def check_ship(files):
     failures = 0
+    follow_line = load_follow_line()
     for path in files:
         print(f"== ship check: {path}")
         rc, out = run([sys.executable, LINT, path])
@@ -95,6 +120,31 @@ def check_ship(files):
             print("  tweet lengths: all <= 280")
         print(f"  subtitle marker: {'present' if has_subtitle else 'absent'}; "
               f"SEO block: {'present' if has_seo else 'absent'}")
+        # SPEC-seo-growth checks (presence of the growth wiring that
+        # prep files declare; lengths are the linter's SEO_LEN rules).
+        is_metadata = "metadata" in os.path.basename(path).lower()
+        has_subtitle_line = any(SUBTITLE_LINE_RE.match(ln)
+                                for ln in text.splitlines())
+        growth_misses = []
+        if is_metadata:
+            if follow_line not in text:
+                growth_misses.append("episode metadata: follow line missing")
+            if not (ARTICLE_LINE_RE.search(text) or ARTICLE_URL_RE.search(text)):
+                growth_misses.append("episode metadata: no article link")
+        for m in YT_TITLE_RE.finditer(text):
+            title = m.group(1).strip()
+            parts = title.rsplit(" - ", 1)
+            if len(parts) < 2 or not parts[1].strip():
+                growth_misses.append(
+                    f"YouTube title lacks the ' - ' search clause: {title[:80]}")
+        if not is_metadata and has_subtitle_line and not has_seo:
+            growth_misses.append("article prep: subtitle present but no SEO block")
+        if growth_misses:
+            failures += 1
+            for miss in growth_misses:
+                print(f"  SEO/GROWTH: {miss}")
+        else:
+            print("  SEO/growth checks: ok")
     print(f"SHIP GATE: {'PASS' if failures == 0 else 'FAIL'}")
     return 0 if failures == 0 else 1
 
