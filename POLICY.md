@@ -92,3 +92,16 @@ the checkpoint has not closed; (3) the daily watchdog's 26-hour
 staleness check remains the floor. Retention (the GFS pins) is
 unchanged: intraday archives live in the in-flight slots and never
 evict a day's pin.
+
+## Self-learning - the project rule (Ravi, 2026-10-23)
+
+Every learning gets industrialized; nothing operational lives only
+in a chat or in one operator's memory. A lesson from any run - a
+failure, a correction, a platform behavior, a mechanic like the
+RSS distribution model - is registered in `LESSONS.md` and pushed
+up the enforcement ladder in `SPEC-self-learning.md` (code or gate
+first, then template, then prose), verified in operation, and
+promoted to a standing check on the third occurrence. This applies
+to every persona and channel the framework runs, present and
+future. The operator's job is not to remember harder; it is to
+make the system remember.

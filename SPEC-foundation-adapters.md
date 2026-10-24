@@ -112,6 +112,20 @@ Plus the channel's follow/subscribe primitive, where the platform has one.
 - Episodes arrive by RSS from Substack; the adapter's job is verification
   (episode present, correct title/description), not posting.
 
+### Apple Podcasts (monitored, not an adapter)
+- Claimed 2026-10-23 from the same Substack RSS feed as Spotify;
+  episodes arrive by RSS pull automatically - per-episode
+  distribution work is zero, exactly like Spotify. Verification,
+  not posting.
+- Held under the owner's Apple account: the identity is private to
+  Apple and the public listing shows only feed contents. Standing
+  declarations: Content Rights Option B ("has rights to its
+  third-party content" - licensed synthetic narration voice,
+  generated artwork); Update Frequency Daily (the per-piece rhythm).
+- YouTube is the exception to the RSS model: it does not consume
+  the feed in this setup, so every episode's video is an individual
+  upload in the publishing path.
+
 ## Open questions for Phase 1 sign-off - ALL SETTLED 2026-10-22 (Meo, under Ravi's decision delegation)
 1. YouTube ceiling: SETTLED - the 50K ceiling applies to comment targets on
    every channel, X/LinkedIn/YouTube alike, with skip-and-report. (The day-1
