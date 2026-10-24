@@ -116,3 +116,12 @@ SPEC-run-log.md appears here.
   (length, lint, placeholders) before it reaches a composer - the
   prep-time checks no longer cover it. Enforced: CODE (ship gate now
   fails any numbered tweet line over 280 chars) + this entry.
+- **L-24 | Narration scripts are their own lint kind | 2026-10-23/24
+  (Meo).** The ship gate's written-sign-off rule ("- That70s Da.")
+  false-positives on episode narration scripts, which must carry the
+  sign-off phonetically ("That seventies day") for TTS - the written
+  form in a script would be spoken aloud wrongly. Rule: the linter
+  takes --kind script (exempt from the written sign-off, requires the
+  phonetic one); the ship gate auto-detects script files by filename
+  and passes the kind through. Enforced: CODE (socialy_lint.py,
+  socialy_check.py) + this entry.

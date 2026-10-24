@@ -23,6 +23,9 @@ from collections import Counter
 
 EM_DASH_CHAR = "\u2014"  # —
 SIGNOFF_TEXT = "- That70s Da."
+# Narration scripts carry the sign-off phonetically for the TTS render
+# (standing podcast audio rule: brand never fed to TTS as written).
+SCRIPT_SIGNOFF_TEXT = "That seventies day"
 SUBTITLE_MAX = 200      # SPEC-studio.md C1
 SEO_TITLE_MAX = 60      # standing SEO rule (see tools/README.md)
 SEO_DESC_MAX = 160
@@ -113,7 +116,16 @@ def lint_lines(path, lines, kind):
                     )
 
     # SIGNOFF: articles/threads must carry the exact sign-off; comments exempt.
-    if kind == "article":
+    # Narration scripts (kind="script") carry the sign-off phonetically for
+    # the TTS render - the written "- That70s Da." must never appear in a
+    # script, so it must not be required there.
+    if kind == "script":
+        if not any(SCRIPT_SIGNOFF_TEXT in line for line in lines):
+            violations.append(
+                (path, max(len(lines), 1), "SCRIPT_SIGNOFF",
+                 "missing phonetic sign-off '%s'" % SCRIPT_SIGNOFF_TEXT)
+            )
+    elif kind == "article":
         if not any(SIGNOFF_RE.search(line) for line in lines):
             violations.append(
                 (path, max(len(lines), 1), "SIGNOFF",
@@ -131,9 +143,12 @@ def main(argv=None):
     )
     parser.add_argument("files", nargs="+", metavar="FILE",
                         help="draft files (markdown or plain text) to lint")
-    parser.add_argument("--kind", choices=("article", "comment"), default="article",
+    parser.add_argument("--kind", choices=("article", "comment", "script"),
+                        default="article",
                         help="draft kind: 'article' (default) requires the exact "
-                             "sign-off; 'comment' drafts are exempt from it")
+                             "sign-off; 'comment' drafts are exempt from it; "
+                             "'script' narration scripts carry the sign-off "
+                             "phonetically ('That seventies day')")
     args = parser.parse_args(argv)
 
     all_violations = []

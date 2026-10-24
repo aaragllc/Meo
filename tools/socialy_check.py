@@ -86,7 +86,11 @@ def check_ship(files):
     follow_line = load_follow_line()
     for path in files:
         print(f"== ship check: {path}")
-        rc, out = run([sys.executable, LINT, path])
+        # Narration scripts (podcast/*/<...>-script.md) carry the sign-off
+        # phonetically for TTS; lint them as kind="script" so the written
+        # sign-off rule does not false-positive on them.
+        kind = "script" if "script" in os.path.basename(path).lower() else "article"
+        rc, out = run([sys.executable, LINT, "--kind", kind, path])
         print(out.strip())
         if rc != 0:
             failures += 1

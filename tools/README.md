@@ -13,7 +13,7 @@ The policy gate as code. Lints persona post drafts (markdown or plain
 text) against POLICY.md, the persona directive, and SPEC-studio.md:
 
 ```
-python3 tools/socialy_lint.py [--kind article|comment] FILE [FILE ...]
+python3 tools/socialy_lint.py [--kind article|comment|script] FILE [FILE ...]
 ```
 
 Exit 0 = clean, 1 = violations found. Each violation is reported with
@@ -26,6 +26,7 @@ summary line.
 | TICKER | cashtags ($SPCX) and ticker parentheticals - (CRWV), (NASDAQ: X), (NYSE: X) | POLICY.md, Hard bans ("companies are named, not tickered") |
 | HYPE | revolutionary, game-changer, disrupt (incl. inflections), paradigm shift, "the future is here" | POLICY.md, Hard bans; directive section 1 (identical list) |
 | SIGNOFF | article/thread drafts missing the exact sign-off "- That70s Da." (comments exempt via --kind comment) | standing sign-off rule |
+| SCRIPT_SIGNOFF | narration scripts (--kind script) missing the phonetic sign-off "That seventies day" - scripts must never carry the written sign-off, so the linter requires the phonetic one instead | standing podcast audio rule (2026-10-15) |
 | SUBTITLE_LEN | a marked subtitle over 200 characters | SPEC-studio.md C1 |
 | SEO_LEN | SEO title over 60 chars or SEO description over 160 in the SEO block | standing SEO rule (adopted 2026-10-22; not in SPEC-studio.md - see below) |
 
