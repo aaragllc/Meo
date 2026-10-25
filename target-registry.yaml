@@ -755,3 +755,239 @@ targets:
     date: 2026-10-24
     outcome: skipped
     reason: "Risk Takers (primarily crypto-leaning); Larry Berman Official (pick-style Bear and Bull ETF Picks); The Monetary Matters Network (already engaged, 58.9K over ceiling); The Julia La Roche Show (76.1K over ceiling, press/media); ShadowTrader (107K over ceiling); NetWorth 60 (no count shown, personal-finance advice); PensionCraft (219K over ceiling); Patrick Boyle (1.36M over ceiling); Stock Moe (721K over ceiling, not visited)"
+
+  # ---------------- Day-4 run (Sun 2026-10-25) ----------------
+  # Run log: logs/engagement-2026-10-25-01.md (50 rows, status partial).
+  # LinkedIn blocked a second day on an expired session; Substack
+  # subscribes failed a third day and the Note/restack failed on the
+  # Note-system error; the Sunday piece was not live at the checks,
+  # so no quote-post or community post was made.
+
+  # X
+  - channel: x
+    target: "@navnoorquant"
+    followers: 207
+    actions: [reply, follow]
+    date: 2026-10-25
+    outcome: live
+    post: https://x.com/navnoorquant/status/2114383817427632219
+    reply: https://x.com/That70sDa/status/2114392439721209946
+    topic: convertible-hedge post, 32% vs 7% reference
+    notes: watchlist account from prior research, first engagement
+
+  - channel: x
+    target: "@fourweekmba"
+    followers: 5944
+    actions: [reply, follow]
+    date: 2026-10-25
+    outcome: live
+    post: https://x.com/fourweekmba/status/2114387407386644751
+    reply: https://x.com/That70sDa/status/2114393677145751679
+    topic: toll-on-every-watt full-stack post
+
+  - channel: x
+    target: "@NaveraResearch"
+    followers: 41
+    actions: [reply, follow]
+    date: 2026-10-25
+    outcome: live
+    post: https://x.com/NaveraResearch/status/2114394054993596791
+    reply: https://x.com/That70sDa/status/2114395235606233326
+    topic: rates hurdle, Oct 28 Fed test
+    response: author_liked_comment
+    response_note: Navera Research liked the persona's reply shortly after posting (seen in notifications) - first reciprocal signal of the day-4 run
+
+  - channel: x
+    target: "@MarketFrameHQ"
+    followers: 14
+    actions: [reply, follow]
+    date: 2026-10-25
+    outcome: live
+    post: https://x.com/MarketFrameHQ/status/2114392637171982590
+    reply: https://x.com/That70sDa/status/2114396837989810189
+    topic: earnings calendar (Microsoft and Alphabet Wed, Amazon Thu)
+    notes: caution disclosed in-session - account bio carries a chainbox.ai referral link; the post engaged was neutral and small-account, not a press outlet
+
+  - channel: x
+    target: "@hamiltonmike_"
+    followers: 40
+    actions: [reply, follow]
+    date: 2026-10-25
+    outcome: live
+    post: https://x.com/hamiltonmike_/status/2114394055073202615
+    reply: https://x.com/That70sDa/status/2114398609877971009
+    topic: AI build-out, electrical work 45% to 70% of the build
+
+  - channel: x
+    target: "@0xALTF4"
+    followers: 64200
+    actions: []
+    date: 2026-10-25
+    outcome: skipped
+    reason: over the 50K ceiling - flagged, no draft (escalation rule)
+
+  - channel: x
+    target: skips of record
+    date: 2026-10-25
+    outcome: skipped
+    reason: "stockAlexander3 (stock-idea/pick account); ChatGPTJob (workshop promotion); GlobalOSINTHQ and clashreport (press/media); htTweets / Hindustan Times (press/media); TitoEspot_ 183 followers (pinned history assessed as stock picks); Dragon21Soul (stock-idea/pick account)"
+
+  - channel: x
+    target: yesterday thread opener (Oct 24, Scorecard)
+    actions: [quote-post]
+    date: 2026-10-25
+    outcome: skipped
+    reason: "kind: quote-post; honest skip - Scorecard thread already closes with the same week-ahead angle, quoting would repeat it, not add a fresh line"
+    post: https://x.com/That70sDa/status/2114195899236954474
+
+  - channel: x_community
+    target: "Stock & Crypto Trading"
+    actions: []
+    date: 2026-10-25
+    outcome: skipped
+    reason: "kind: community-post; Sunday Week Ahead thread not yet live at profile check, no post made; rules allow sharing own analysis"
+    url: https://x.com/i/communities/1832932064502710613
+
+  - channel: x_community
+    target: "Artificial Intelligence + Tech"
+    actions: []
+    date: 2026-10-25
+    outcome: skipped
+    reason: "kind: community-post; Sunday Week Ahead thread not yet live at profile check, no post made"
+    url: https://x.com/i/communities/1724390935406981529
+
+  # Substack
+  - channel: substack
+    target: CappNotes
+    url: cappnotes.substack.com
+    actions: [comment]
+    date: 2026-10-25
+    outcome: live
+    post: https://cappnotes.substack.com/p/rotation-not-retreat-yet
+    notes: "kind: restack with comment FAILED same run - Note-system error, no restack completed, no plain restack substituted"
+
+  - channel: substack
+    target: Tech Trends News Update
+    url: techtrendsnewsupdate.substack.com
+    actions: [comment x3]
+    date: 2026-10-25
+    outcome: live
+    post: https://techtrendsnewsupdate.substack.com/p/nvidia-opens-five-cosmos-data-blueprints
+    notes: "also commented on the Nemotron post and the 100,000-storefronts post the same run; Saturday Morning Brief comment section paid-only, skipped (never pay)"
+
+  - channel: substack
+    target: Stock Market Moods
+    url: stockmarketmoods.substack.com
+    actions: [comment]
+    date: 2026-10-25
+    outcome: live
+    post: https://stockmarketmoods.substack.com/p/earnings-week-technicals-volume-1
+    notes: "voice watch item - comment reused the target's own ticker abbreviations (SMH, IGV, SPY) rather than plain names; subscribe retry failed a third day (site error)"
+    followup: free subscribe failed again - Substack returned 'Something went wrong' (site error, third consecutive day); retry in a later run
+
+  - channel: substack
+    target: Strategitz
+    url: strategitz.substack.com
+    actions: []
+    date: 2026-10-25
+    outcome: skipped
+    reason: "comment skipped - Week in Podcasts post about 27.5h old, outside the 24h rule; subscribe retry failed a third day - Substack returned 'Something went wrong' (site error)"
+    followup: retry the free subscribe in a later run
+
+  - channel: substack
+    target: Broad Spectrum Finance
+    url: broadspectrum.substack.com
+    actions: []
+    date: 2026-10-25
+    outcome: skipped
+    reason: "comment skipped - latest post Oct 23, not fresh in the last 24h; subscribe retry failed a third day - Substack returned 'Something went wrong' (site error)"
+    followup: retry the free subscribe in a later run
+
+  - channel: substack
+    target: That70s Da Notes
+    actions: [note]
+    date: 2026-10-25
+    outcome: failed
+    reason: "kind: note; Substack Note system returned Something went wrong and Failed to send note twice; Notes page confirmed the Note did not post; Sunday piece not live so no link was in the attempted text; draft only"
+    followup: retry the daily Note in a later run once the site error clears
+
+  - channel: substack
+    target: The Conviction And The Caution
+    url: convictioncaution.com
+    actions: [comment visibility check]
+    date: 2026-10-25
+    outcome: live
+    post: https://convictioncaution.com/2026/10/21/the-ai-trades-debt-problem-a-data-led-report/
+    notes: Oct 23 comment now publicly visible (One response, dated 2026.10.23); not resubmitted - moderation follow-up resolved
+
+  - channel: substack
+    target: skips of record
+    date: 2026-10-25
+    outcome: skipped
+    reason: "The Innermost Loop Chain Theory (fundamental physics, off-lane); Rock and Turner (latest Oct 23, not fresh); Systematic Strategies (latest Oct 1, not fresh); Tech Trends UK AI Biosecurity Lab post (fresh but not clearly in-lane, quota filled)"
+
+  # LinkedIn (as the That70sDa page)
+  - channel: linkedin_page
+    target: channel session check
+    actions: []
+    date: 2026-10-25
+    outcome: blocked
+    reason: "session expired, second consecutive day; first fresh tab briefly loaded the feed then redirected to login on reload, second fresh tab also redirected to login - genuinely expired under the fresh-window test; no password login attempted per standing rule; no comments or follows; needs manual sign-in by the page admin before the next LinkedIn run"
+
+  # YouTube (as the That70s Da channel)
+  - channel: youtube
+    target: Semiconductor News / 3-Min Semi with Tai
+    subscribers: 90
+    actions: [comment]
+    date: 2026-10-25
+    outcome: live
+    video: https://www.youtube.com/watch?v=ZvgvZcwH41U
+    comment: https://www.youtube.com/watch?v=ZvgvZcwH41U&lc=UgxGVAjG1Kf3LjGFc8J4AaABAg
+    topic: CoreWeave bonds below 80 on 100 face value for 2032 debt
+    notes: "gate cleared on the third-run retry - composer showed Comment as a subscriber; already subscribed, no new subscribe; follow-up retry, video 2 days old"
+
+  - channel: youtube
+    target: Why X
+    subscribers: 43800
+    actions: [comment, subscribe]
+    date: 2026-10-25
+    outcome: live
+    video: https://www.youtube.com/watch?v=6dUNrk_V5uM
+    comment: https://www.youtube.com/watch?v=6dUNrk_V5uM&lc=Ugx9AkQPP7gIzni-o7d4AaABAg
+    topic: 10-year vs 30-year mortgage gap, 2.36 points, mortgage 7.32%
+
+  - channel: youtube
+    target: DESK - The World's Markets
+    subscribers: 2
+    actions: [comment, subscribe]
+    date: 2026-10-25
+    outcome: live
+    video: https://www.youtube.com/watch?v=m3sWq0g0Fjs
+    comment: https://www.youtube.com/watch?v=m3sWq0g0Fjs&lc=Ugzoob01ujAb4HnmL-h4AaABAg
+    topic: 10-year range 0.52% to 5.31%, Oct 5 highest since May 2002
+
+  - channel: youtube
+    target: Axioscope
+    subscribers: 36
+    actions: [comment, subscribe]
+    date: 2026-10-25
+    outcome: live
+    video: https://www.youtube.com/watch?v=0sV_oxYXmEE
+    comment: https://www.youtube.com/watch?v=0sV_oxYXmEE&lc=Ugwc8Ya7-JDdcWsg4EN4AaABAg
+    topic: G7 debt ranking, France at 5.14%
+
+  - channel: youtube
+    target: The Money Brief
+    subscribers: 1
+    actions: [comment, subscribe]
+    date: 2026-10-25
+    outcome: live
+    video: https://www.youtube.com/watch?v=7dUexJGFO-Y
+    comment: https://www.youtube.com/watch?v=7dUexJGFO-Y&lc=UgyVrae61N54T0TeJR14AaABAg
+    topic: mortgage rates follow the 10-year yield
+
+  - channel: youtube
+    target: skips of record
+    date: 2026-10-25
+    outcome: skipped
+    reason: "Finance Bureau (127K over ceiling); Millionaires Investment Secrets (pick-style, 3 Stocks To Buy Now title, video not opened)"

@@ -31,8 +31,19 @@
 ## Platform safety
 
 - Human-plausible volume and timing only; randomized gaps; daily start jitter.
+- No run starts on an unverified session: the session preflight
+  (publish_session_preflight skill, L-25) runs before any posting or
+  engagement work, and its pass/expired result is reported first. An
+  expired session stops that platform, never the run, and never earns a
+  password retry.
 - Stop the channel's run on ANY warning, daily-limit message, CAPTCHA, or
   verification challenge. Never circumvent a block, never retry through it.
+- A platform SITE error is not a warning: a bare "Something went wrong"
+  with no warning, limit or challenge attached follows the decaying
+  retry cadence in config.yaml (safety.site_error_backoff, L-28) -
+  skip the next run, then every other day, logged as a standing site
+  issue. The moment an error arrives with a warning attached, the
+  stop rule above governs instead.
 - LinkedIn: never do automated password logins (manual takeover sign-in only,
   warm session reused). Never comment or follow as the operator's personal
   profile when acting for a page.

@@ -118,6 +118,27 @@ verified standing thereafter.
 | Content repository regeneration (full-text PDF of all articles) | WK | Sunday cycle | tools/socialy_repository.py | Sunday report |
 | Growth ledger with the 4-week cut rule (a lever producing nothing in 4 weeks gets cut) | WK | Sunday report | `growth.growth_ledger_in_sunday_report` | the ledger itself |
 
+### Derivative text rules (L-27, 2026-10-25)
+
+Community posts, Notes and quote-posts are derivative texts and obey
+the same mechanics as the pieces they derive from:
+
+- **Length:** measured before handoff like tweets - prep ceiling 272
+  raw chars counted by script (config defaults.tweet_prep_char_limit;
+  the ship gate measures COMMUNITY POST blocks). A text the composer
+  would reject is a prep failure, not a ship-day surprise (the first
+  community draft measured 288 by X's counter, 2026-10-24).
+- **Distinct wording per community:** identical text posted to two
+  X Communities trips the duplicate check ("Whoops! You already said
+  that"). Each community gets its own wording, angled to that
+  community's lane, written at prep - never a copy with the serial
+  numbers filed off at the composer.
+- **Notes under site-error backoff:** when Substack Notes are failing
+  with bare site errors, the Note follows the L-28 decaying cadence
+  (config safety.site_error_backoff) instead of a daily forced
+  attempt; the day's sharp line rides the X quote-post slot in the
+  meantime.
+
 ## 3. Sunday reporting requirement
 
 The Sunday report (audience one-pager) carries, alongside the

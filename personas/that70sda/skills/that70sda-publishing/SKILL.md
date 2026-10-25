@@ -81,6 +81,13 @@ as the that70sda persona on X (@That70sDa) and the LinkedIn company page (That70
   Stocky wrote them that way. No inline numbering (the reply chain shows order).
 - Verify every post is ≤ 280 chars before handing to the browser task
   (programmatic check, not eyeballing).
+- PREP CEILING (L-23c, 2026-10-25): draft every tweet to ≤ 272 raw
+  characters, counted by script (config defaults.tweet_prep_char_limit;
+  the ship gate enforces it). 280 is the platform's hard limit, not
+  the drafting target - the Scorecard W43 thread prepped to 280
+  shipped tweets at 294/310/291 by X's counter and stopped live.
+  Community posts and other derivative texts follow the same ceiling
+  and get DISTINCT wording per community (L-27).
 - PACING (learned 2026-10-15): never fire a full 13–19 tweet thread in one
   burst on this young, unverified account. The 16:35 PT rate-limit hit after
   17 + 19 tweets in ~24h — the trigger is burst/hourly throttle plus
@@ -105,11 +112,18 @@ as the that70sda persona on X (@That70sDa) and the LinkedIn company page (That70
   ("Wednesday" → "tomorrow") and note the change at approval time.
 
 ## Routine (per post)
+0. SESSION PREFLIGHT (L-25, 2026-10-25): before the first publish step,
+   run the publish_session_preflight skill for every platform this
+   ship touches (Substack, X, LinkedIn, YouTube) - confirm each
+   signed-in identity in the live browser and report pass/expired
+   BEFORE any posting result. An expired session stops that platform
+   (manual-takeover sign-in ask; never a password retry), never the
+   whole ship silently.
 1. Receive Stocky draft. Note which post it is and intended timing. Record provenance in the batch inspection file: the source (Stocky batch date, or a Ravi special sequence), the piece's sequence position if it belongs to a multi-post group, and the scheduling basis actually used — Ravi's own instruction governs over Stocky's Timing lines, and the file states which one won and why.
 2. Verify numbers Stocky flagged or that look checkable (search).
 3. Minimal language smoothing only.
 4. Continuity pass (Ravi, 2026-10-19 — see directive Resolution 4): before formatting, check the draft against the previous 2–3 posts. Ensure (a) at least one callback to an earlier post or named system (dashboard, scorecard, rotation map) where natural, (b) an open-loop close ("what I'm watching" / "what would change my mind"), (c) at least one cross-channel bridge — X thread ends on the article link, article links the episode, episode description links back. Preserve the piece's native narrative frame (map day / odds day / story day / grading day); never flatten drafts into one template. (d) Lateness check (Ravi, 2026-10-20): if the previous post was late, a day was missed, or a promise slipped, add a brief lateness bridge near the top in the persona's voice (everyday reason — work, travel, life; short, reasonably personal in feel but never any specific personal detail, and varied). (e) Forward reference (Ravi, 2026-10-20 — directive Resolution 6): every post points ahead to what is coming — the next post or segment, the calendar event being watched, what the persona will check next and when — so readers have a reason to return; and when a post fulfills an earlier forward reference, say so, so the promises visibly land. (f) Sequence cross-references (Ravi, 2026-10-22): when a post belongs to a related group (a trio, a series, a two-parter), record the group's cross-reference obligations in the batch inspection file at intake — which earlier pieces each post must name and link, which forward references each piece must plant, and which promises the later pieces must visibly fulfill. At each piece's ship time, add or edit the cross-references so they name the actually-published earlier pieces with their live links; never ship a later piece whose promised callbacks are missing or point at the wrong day.
-5. Build LinkedIn full text + X thread splits; check X lengths programmatically.
+5. Build LinkedIn full text + X thread splits; check X lengths programmatically. Then run the ship gate (socialy_check.py ship) on the WHOLE pack - article, thread, episode script, metadata, LinkedIn draft, community texts - never the article set alone (L-23c: the scorecard thread escaped the gate exactly this way). A placeholder in a file does not excuse it from the gate; fill placeholders at ship and re-run until clean.
 6. Present final formatted drafts to Ravi for approval. Flag any conflicts
    with his standing preferences.
 7. On approval: post to both platforms via browser tasks, verify live,

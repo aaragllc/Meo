@@ -17,11 +17,25 @@ SPEC-run-log.md appears here.
   line. Rule: body text enters by paste/caret only, never fill/typing.
   Enforced: TEMPLATE (every browser publish/edit task states it) +
   full-body verify after any edit publish.
+  EXTENDED 2026-10-24: on the P3 and Scorecard listen-line inserts,
+  the paste path ALSO corrupted the body (fill-action paste merged
+  the line into adjacent paragraphs and once replaced body text;
+  every attempt undone before publish). Rule update: for body
+  inserts, paste is no longer a verified method either - see L-03.
 - **L-03 | EDIT-PASTE-DRIFT | 2026-10-22/23.** Pasted lines drift to
   the wrong paragraph in the Substack editor. Rule: the listen-line
   method is click sign-off, Home, Enter, verified caret in the new
   empty paragraph, then paste (confirmed clean 2026-10-23 on P2).
   Enforced: TEMPLATE (edit tasks carry the method verbatim).
+  SUPERSEDED METHOD 2026-10-24: the paragraph setup stands (click
+  the "- That70s Da." sign-off paragraph, Home, Enter, verify the
+  caret sits in the new empty paragraph above it), but the line
+  itself is entered with INDIVIDUAL KEY PRESSES, not paste - paste
+  and fill both misbehaved on the 2026-10-24 inserts, key-press
+  entry produced the exact text and paragraph structure on both
+  P3 and the Scorecard, each followed by a full live-body verify.
+  Enforced: TEMPLATE (edit tasks carry the key-press method
+  verbatim) + SPEC-studio C6 caution.
 - **L-04 | EDIT-DRAG-SHORT | 2026-10-22.** Drag-based text placement
   in the Substack settings editor (welcome email) drops short lines
   and desyncs visual from saved state. Rule: no drag placement for
@@ -39,6 +53,16 @@ SPEC-run-log.md appears here.
   trigger a code before the dialog is in front of someone who can
   enter it; one dialog at a time. Enforced: TEMPLATE (browser tasks
   stop at the gate) + the sealed Gmail relay.
+  EXTENDED 2026-10-24 (CODE-RELAY-LATENCY): the sealed relay lost
+  TWO codes on the P3 publish - handoff latency plus approval round
+  trips exceed the code's ~10-minute life (13:34 code expired in
+  transit; ~14:55 resend expired before entry). Rule: when Ravi is
+  present, the MANUAL TAKEOVER path is primary - he clicks Resend
+  in the live window and types the fresh code himself (proven on
+  P2 2026-10-23 and P3 2026-10-24, zero drama both times). The
+  sealed relay is fallback only, for when he is not present.
+  Enforced: TEMPLATE (RUNBOOK ship section + healing table remedy
+  rewritten) + operator practice.
 - **L-07 | GATE-CODE-STALE | 2026-10-20.** Every publish click mints a
   new code and kills the last; only the NEWEST code email is valid.
   Rule: relay the newest email's reference only. Enforced: TEMPLATE
@@ -122,6 +146,25 @@ SPEC-run-log.md appears here.
   291 chars with the URL in). The gate now measures tweet length with
   every placeholder substituted by a 64-char proxy URL. Enforced: CODE
   (socialy_check.py URL_PROXY) + this entry.
+  EXTENDED 2026-10-25 (L-23c - the scorecard miss, root-caused): the
+  Scorecard W43 thread shipped with tweets 3/4/6 at 294/310/291 by
+  X's counter and stopped live after tweet 2 - yet prep had reported
+  the pack gate-verified. Root cause: the prep gate ran on the
+  article, episode script and metadata ONLY; the thread file was
+  never in the gate's file list (its unfilled link placeholder made
+  it "not ship-ready", so it was silently excluded). The gate code
+  itself was verified correct - run on a reconstruction of the
+  original thread it flags all three tweets and exits 1. Fixes:
+  (1) CODE - the gate now also enforces a PREP CEILING of 272 raw
+  chars per tweet (config defaults.tweet_prep_char_limit), so a
+  draft fails early instead of at the platform limit, and regression
+  fixtures + tools/test_socialy_check.py pin the behavior (original
+  thread fails, corrected scorecard + Week Ahead threads pass);
+  (2) TEMPLATE - the ship gate runs on the WHOLE pack (article,
+  thread, script, metadata, LinkedIn, community drafts); a
+  placeholder failure never excuses skipping the length measurement
+  of the same file. Enforced: CODE (socialy_check.py prep ceiling +
+  fixtures) + TEMPLATE (publishing skill ship path, RUNBOOK).
 - **L-24 | Narration scripts are their own lint kind | 2026-10-23/24
   (Meo).** The ship gate's written-sign-off rule ("- That70s Da.")
   false-positives on episode narration scripts, which must carry the
@@ -131,3 +174,62 @@ SPEC-run-log.md appears here.
   phonetic one); the ship gate auto-detects script files by filename
   and passes the kind through. Enforced: CODE (socialy_lint.py,
   socialy_check.py) + this entry.
+
+## Weekend of 2026-10-24/25 - industrialized 2026-10-25 (Ravi's directive)
+
+- **L-25 | PREFLIGHT - verify sessions before the run, not during it |
+  2026-10-24/25.** LinkedIn's session was expired on both weekend
+  mornings and YouTube's EP20 upload died in an open dialog Saturday
+  night; every one of these was discovered MID-RUN, after other work
+  had already flowed around the dead surface. Rule: every publish
+  or engagement run starts with a session preflight - list every
+  platform the run will touch, open each in the live browser, confirm
+  the signed-in identity from the profile name or handle, and report
+  pass/expired BEFORE any posting result; an expired session stops
+  that platform only (manual-takeover sign-in ask; never a password
+  retry). Enforced: TEMPLATE (publish_session_preflight skill +
+  RUNBOOK step 0 + publishing-skill ship path + engagement routine).
+- **L-26 | TOOL-BG-OUTPUT | 2026-10-24.** Two backgrounded exec video
+  builds "completed" and their mp4s did not exist afterward;
+  foreground-completed work persisted. Rule: media builds run as
+  STAGED FOREGROUND builds (stage_build.py pattern - one card group
+  per invocation), and the output file's existence + duration are
+  verified after each stage before the next begins; a build that
+  reports success with no file on disk is a failed build. Enforced:
+  TEMPLATE (SPEC-studio B3, bumped v1.1 2026-10-25) + build-task
+  text.
+- **L-27 | GATE-COMMUNITY-LEN | 2026-10-24.** The first P3 community
+  text was 288 chars by X's counter (8 over) with the button disabled
+  in the composer, and the identical trimmed text posted to a second
+  community was rejected by X's duplicate check ("Whoops! You
+  already said that"). Rule: derivative texts (community posts,
+  Notes, quote-posts) pass the same length measurement as tweets
+  before handoff (prep ceiling 272, URL at t.co length in the
+  poster's count), and each community gets DISTINCT wording written
+  for it - never the same text twice. Enforced: CODE (ship gate
+  measures COMMUNITY POST blocks) + TEMPLATE (SPEC-seo-growth,
+  config growth comments, engagement routine).
+- **L-28 | Site-error backoff | 2026-10-23/24/25.** Substack free
+  subscribes failed three straight days and the daily Note four
+  times in two days, every time with the platform's "Something went
+  wrong" / "Failed to send note" - site errors, with zero warnings,
+  limits or CAPTCHAs attached. Daily retries bought nothing and
+  burned run time. Rule: a platform site error (distinct from a
+  warning) gets a DECAYING retry cadence - skip the next run, then
+  retry every other day - logged as a standing site issue until a
+  run succeeds; warnings still stop the channel immediately and are
+  never retried through. Enforced: TEMPLATE (config.yaml safety
+  site_error_backoff + POLICY.md platform safety + healing-table
+  row).
+- **L-29 | Drive filing rides the intake job's scope | 2026-10-24/25.**
+  Filing the Oct 24 Stocky originals (inbox -> consumed) stalled for
+  a day: ad-hoc manual `files update` attempts from the operator's
+  shell spawned their OWN approval cards (separate from the intake
+  job's approved scope), one call hung outright, and a stuck
+  equivalent write blocked retries. Rule: Drive filing moves ride
+  the stocky-drive-intake job's own approved scope - let the cron
+  path move files; do not improvise manual moves from an interactive
+  shell. Ravi granted standing permission on 2026-10-25 for Meo to
+  reorganize the Stocky handshake folders (inbox/consumed/acks/
+  feedback) whenever needed without asking. Enforced: PROSE
+  (RUNBOOK note) + the standing permission recorded here.

@@ -175,6 +175,13 @@ setup beyond the repo itself.
   search clause; article prep (a file with a subtitle marker) with no
   SEO block fails. Numbered tweet lines are measured with every
   placeholder substituted by a 64-char proxy URL, since the live link
-  replaces [ARTICLE LINK] at ship time (L-23b). `state` = platform self-check (parity, run-log
+  replaces [ARTICLE LINK] at ship time (L-23b). Since 2026-10-25
+  (L-23c/L-27) it also enforces the 272 prep ceiling
+  (config defaults.tweet_prep_char_limit) on numbered tweet lines
+  and measures COMMUNITY POST blocks the same way; regression
+  fixtures live in tools/fixtures/ and run via
+  `python3 tools/test_socialy_check.py` (the reconstructed original
+  scorecard thread must fail; the corrected scorecard, Week Ahead
+  and community fixtures must pass). `state` = platform self-check (parity, run-log
   validation for post-2026-10-23 logs, LESSONS.md coverage of every
   taxonomy code). Run by the daily ops watchdog and the Sunday review.

@@ -1,6 +1,10 @@
 # Socialy.INK - Production Studio Spec
 
-**Status: FROZEN v1, 2026-10-22.**
+**Status: v1.1, 2026-10-25** (bump from FROZEN v1, 2026-10-22, under
+Ravi's 2026-10-25 industrialize directive: B3 gains the staged-
+foreground build rule from the 2026-10-24 output-loss incidents
+(L-26), and the C6 editor caution is updated to the key-press
+insert method verified 2026-10-24 (L-03). No other rule changed.)
 **Change rule: this spec changes only by Ravi's direct instruction or a deliberate version bump (v2, v3...) recorded at the top of this file with its date and reason. No run, worker, or adapter may silently deviate from a numbered rule; if production reality contradicts a rule, stop, flag it, and let the version bump settle it.**
 
 Scope: turning a published (or publishing) article into its podcast episode and its YouTube video - audio rendering, video building, episode metadata, and same-day parity. Persona pack #1: that70sda. Article and thread production live in the publishing pipeline spec; this spec governs the studio.
@@ -48,6 +52,7 @@ Canonical palette (all video cards): espresso #371C15, burnt orange #C7701F, gol
 - **Gate 2 - Audio:** the narration track must itself satisfy A6-A7 (single consistent render, baseline measurements, no patched or chunk-spliced cuts or loudness jumps), verified with per-section loudness measurements. A video built on flawed audio fails QC regardless of its animation: remake the audio fresh (A7), rebuild the video, re-check both gates.
 
 **B3. Build method.** Builder: `build_video.py` (per-episode card groups in `groups.json`). When rebuilding against a remade audio track: scale the group durations to the new audio length, snap card boundaries to the midpoints of detected silences (-40 dB silencedetect), and render segments with an explicit `-t <duration>` - never `-shortest`, which truncates cards against the audio.
+**B3a. Staged foreground builds (2026-10-25, L-26).** Media builds NEVER run as one backgrounded whole build: on 2026-10-24 two backgrounded builds reported completion and their mp4s did not exist afterward. Builds run in foreground-sized stages (the `stage_build.py` pattern - one card group per invocation, then concat), and after EACH stage the operator verifies the output file exists on disk with the expected duration before starting the next. A build whose process reports success but leaves no file is a FAILED build, full stop - it is re-run in stages, never trusted.
 
 **B4. YouTube metadata.** Title = the episode title. Description = the episode's overview description (see D3-D4), composed for YouTube: "Originally published <date>." line first for backlog uploads (D4), the overview, the article link, the episode link, the Spotify show link, and "Not financial advice." Settings: Public, not made for kids, Category Education.
 
@@ -63,7 +68,7 @@ Canonical palette (all video cards): espresso #371C15, burnt orange #C7701F, gol
 
 **C5. Sections.** Substack filing is fixed: **articles under the "that70sda" section; podcast episodes under the "Podcast" section.** No episode in the article section, no article in Podcast, no "no section" ships.
 
-**C6. Cross-linking (both directions, every episode).** The episode description links its article. Once the episode is live, the article is edited to carry, between the disclaimer and the sign-off: "Prefer to listen? The audio version is here: <episode URL>". (Editor caution from `~/TOOLS.md`: never use fill/typing entry on the Substack editor body field - it can replace the whole body; insert via non-destructive paste/caret methods only, and verify the FULL live body after any edit publish. Note: per Ravi's 2026-10-22 direction, back-catalogue listen-link fixes are deprioritized - C6 binds new ships; the parked backlog list lives in the goal's `hidden_files/listen-link-batch-status.md`.)
+**C6. Cross-linking (both directions, every episode).** The episode description links its article. Once the episode is live, the article is edited to carry, between the disclaimer and the sign-off: "Prefer to listen? The audio version is here: <episode URL>". (Editor caution from `~/TOOLS.md`, updated 2026-10-24 (L-02/L-03): never use fill/typing entry on the Substack editor body field - it can replace the whole body - and paste proved unsafe for body inserts too (merged lines, replaced text). The verified insert method is: click the "- That70s Da." sign-off paragraph, Home, Enter to create a new empty paragraph above it, verify the caret sits in that new empty paragraph, then enter the line with individual key presses. Verify the FULL live body after any edit publish. Note: per Ravi's 2026-10-22 direction, back-catalogue listen-link fixes are deprioritized - C6 binds new ships; the parked backlog list lives in the goal's `hidden_files/listen-link-batch-status.md`.)
 
 **C7. Written sign-off and separators.** In ALL written text - articles, threads, episode descriptions, metadata - the signature is exactly **"- That70s Da."** and the separator is a spaced hyphen " - "; the em dash character never appears in persona writing. The audio spelling in A5 never leaks into text.
 

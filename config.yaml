@@ -8,6 +8,7 @@ defaults:
   target_window_hours: 24        # how fresh a target post must be
   max_author_followers: 50000     # bigger accounts are escalation-skips, logged for a human call
   reply_char_limit_x: 200         # X replies stay under this
+  tweet_prep_char_limit: 272      # L-23c: drafting ceiling for tweets + community posts (X hard limit is 280); the ship gate enforces it, counted by script at prep - never eyeball
 
 pacing:
   intra_run_gap_minutes: [2, 6]   # randomized gap between posts in one session
@@ -36,6 +37,14 @@ safety:
   stop_on_platform_warning: true  # any warning/limit/CAPTCHA ends that channel's run
   never_circumvent_blocks: true
   verify_live_after_post: true    # every post is read back live before it counts
+  # L-28 site-error backoff: a platform SITE error ("Something went wrong",
+  # no warning attached) is not a warning - do not retry it daily. Cadence:
+  # skip the next run entirely, then retry every other day, logged as a
+  # standing site issue until a run succeeds. (Substack subscribes failed
+  # 3 straight days and Notes 4x in 2 days, 2026-10-23/25, all site
+  # errors, zero warnings.) The moment an error arrives WITH a warning,
+  # limit message or CAPTCHA, stop_on_platform_warning governs instead.
+  site_error_backoff: [skip_next_run, every_other_day]
 
 growth:                            # Phase 6 - growth audit levers (approved 2026-10-23)
   substack_recommendations:        # recommend-first graph, warm contacts only
@@ -63,6 +72,12 @@ growth:                            # Phase 6 - growth audit levers (approved 202
     ep18: https://youtube.com/shorts/iyobfptxGoY
   youtube_advanced_features: wait_for_channel_history  # Ravi 2026-10-23: NO video selfie or ID verification for the persona. Comment pinning (comments already posted on all 19 videos) and clickable Community links unlock via channel history; pin in a follow-up session once eligibility shows.
   x_communities_test: {start: 2026-10-24, review: 2026-11-06, communities_joined: 2}
+  # L-27 community-post rules (2026-10-24): each community gets DISTINCT
+  # wording - identical text across communities trips X's duplicate check
+  # ("Whoops! You already said that"). Community texts are measured like
+  # tweets before handoff: <= tweet_prep_char_limit at prep (ship gate
+  # checks COMMUNITY POST blocks), URL counted at t.co length in the
+  # poster's own count.
   next_day_quote_post: true        # quote-post yesterday's thread with one fresh line, when the theme allows
   linkedin_follower_milestone: 150 # page newsletter eligibility threshold; invites NEVER used
   apple_podcasts: live             # claimed 2026-10-23, status Available: https://podcasts.apple.com/us/podcast/that70s-da/id6826468869 (Substack link-back Done)

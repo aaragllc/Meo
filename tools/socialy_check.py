@@ -7,11 +7,17 @@ Usage:
     python3 socialy_check.py ship FILE [FILE ...]
         Pre-ship gate: lints every file (socialy_lint.py), scans body
         lines for unresolved placeholders, reports subtitle/SEO
-        presence on article prep files, and runs the SPEC-seo-growth
-        checks: episode metadata must carry the follow line and an
-        article link, a declared YouTube title must carry its " - "
-        search clause, and article prep (a file with a subtitle
-        marker) must carry an SEO block. Exit 1 blocks the ship.
+        presence on article prep files, measures numbered tweet lines
+        and COMMUNITY POST blocks against the platform limit (280)
+        AND the prep ceiling (272, config tweet_prep_char_limit), and
+        runs the SPEC-seo-growth checks: episode metadata must carry
+        the follow line and an article link, a declared YouTube title
+        must carry its " - " search clause, and article prep (a file
+        with a subtitle marker) must carry an SEO block. Exit 1
+        blocks the ship. The gate must be run on the WHOLE pack
+        (article, thread, script, metadata, LinkedIn and community
+        drafts) - the 2026-10-24 scorecard miss happened because the
+        thread file was never in the gate's file list (L-23c).
 
     python3 socialy_check.py state
         Platform self-check: parity checker against the live catalogue,
@@ -49,6 +55,36 @@ PLACEHOLDER_RES = [
 # substituted by a 64-char proxy; the placeholder itself is still reported
 # (and filled) separately.
 URL_PROXY = "x" * 64
+# Placeholder patterns that stand in for a URL at prep time (used for
+# length measurement only; TODO/TBD tokens are NOT substituted - they are
+# not URLs and inflating them would skew the count).
+MEASURE_RES = [PLACEHOLDER_RES[0], PLACEHOLDER_RES[1], PLACEHOLDER_RES[3]]
+# L-23c (2026-10-24 scorecard incident): X's hard limit is 280, but drafts
+# are held to a prep ceiling (default 272, config defaults.
+# tweet_prep_char_limit) so ship-day substitutions and counting drift
+# cannot push a tweet over. Python len() on the persona's ASCII text
+# matched X's own counter exactly in the incident (294 == 294), so the
+# raw count is the arbiter; the ceiling is the safety margin.
+TWEET_HARD_MAX = 280
+TWEET_PREP_MAX_FALLBACK = 272
+COMMUNITY_MARKER_RE = re.compile(r"^COMMUNITY( POST)?\b", re.IGNORECASE)
+
+
+def load_prep_max():
+    try:
+        cfg = open(CONFIG, encoding="utf-8").read()
+    except OSError:
+        return TWEET_PREP_MAX_FALLBACK
+    m = re.search(r"tweet_prep_char_limit:\s*(\d+)", cfg)
+    return int(m.group(1)) if m else TWEET_PREP_MAX_FALLBACK
+
+
+def measure(line):
+    """Length of a post line as X will see it: URL placeholders proxied."""
+    measured = line
+    for rx in MEASURE_RES:
+        measured = rx.sub(URL_PROXY, measured)
+    return len(measured)
 SUBTITLE_RE = re.compile(r"^\s*#?\s*Subtitle\b", re.IGNORECASE)
 SEO_BLOCK_RE = re.compile(r"SEO title", re.IGNORECASE)
 CODE_RE = re.compile(r"`([A-Z][A-Z0-9]+(?:-[A-Z0-9]+)+)`")
@@ -120,21 +156,51 @@ def check_ship(files):
                 print(f"  PLACEHOLDER line {i}: {line}")
         else:
             print("  placeholders: none")
+        prep_max = load_prep_max()
         long_tweets = []
         for i, line in body_lines(path):
             if not re.match(r"^\d+/ ", line):
                 continue
-            measured = line
-            for rx in PLACEHOLDER_RES:
-                measured = rx.sub(URL_PROXY, measured)
-            if len(measured) > 280:
-                long_tweets.append((i, len(measured), line.strip()[:60]))
+            n = measure(line)
+            if n > TWEET_HARD_MAX:
+                long_tweets.append((i, n, TWEET_HARD_MAX, line.strip()[:60]))
+            elif n > prep_max:
+                long_tweets.append((i, n, prep_max, line.strip()[:60]))
         if long_tweets:
             failures += 1
-            for i, n, line in long_tweets:
-                print(f"  TWEET LENGTH line {i}: {n} chars > 280: {line}")
+            for i, n, limit, line in long_tweets:
+                kind = "hard limit" if limit == TWEET_HARD_MAX else "prep ceiling"
+                print(f"  TWEET LENGTH line {i}: {n} chars > {limit} ({kind}): {line}")
         else:
-            print("  tweet lengths: all <= 280")
+            print(f"  tweet lengths: all <= {prep_max} (prep ceiling; "
+                  f"hard limit {TWEET_HARD_MAX})")
+        # L-27: derivative texts get the same measurement as tweets.
+        # A block starting with a "COMMUNITY POST" marker line is one
+        # post: its following non-blank lines are measured as a single
+        # text (placeholders proxied) against the same ceilings.
+        community_over = []
+        lines_list = list(body_lines(path))
+        for idx, (i, line) in enumerate(lines_list):
+            if not COMMUNITY_MARKER_RE.match(line.strip()):
+                continue
+            block = []
+            for j in range(idx + 1, len(lines_list)):
+                nxt = lines_list[j][1]
+                if not nxt.strip():
+                    break
+                block.append(nxt)
+            if not block:
+                continue
+            n = measure("\n".join(block))
+            if n > prep_max:
+                community_over.append((i, n, block[0].strip()[:60]))
+        if community_over:
+            failures += 1
+            for i, n, line in community_over:
+                print(f"  COMMUNITY LENGTH line {i}: {n} chars > {prep_max} "
+                      f"(prep ceiling): {line}")
+        elif any(COMMUNITY_MARKER_RE.match(ln.strip()) for _i, ln in lines_list):
+            print("  community posts: all within prep ceiling")
         print(f"  subtitle marker: {'present' if has_subtitle else 'absent'}; "
               f"SEO block: {'present' if has_seo else 'absent'}")
         # SPEC-seo-growth checks (presence of the growth wiring that
