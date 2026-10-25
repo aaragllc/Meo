@@ -25,6 +25,15 @@ catalogue: parity-audit-2026-10-22
 persona: that70sda
 source_audit: parity-audit-2026-10-22.md
 
+# Updates 2026-10-25 (audit #2 draft, personas/that70sda/parity-audit-2-DRAFT.md):
+# Spotify verified live for EP15-EP20 on the public show page, so the
+# spotify cells for yield, era-file, rotation-p1 and rotation-p2 flip
+# from unconfirmed to confirmed (four baseline gaps close), and the two
+# new pieces (rotation-p3, scorecard-w43) enter with all confirmed
+# surfaces. Extra fields beyond the audit #1 set (youtube_short,
+# linkedin_urn, linkedin_note, x_community_posts) record identifiers
+# the parity checker does not score.
+
 exception_provenance:
   parked_listen_links: "Ravi directive, 2026-10-22 - the listen-link workstream is CLOSED and 7 articles are parked (accepted exceptions, not defects); do not re-flag unless Ravi reopens it."
 
@@ -183,7 +192,7 @@ pieces:
     episode_no: EP15
     article: https://that70sda.substack.com/p/the-one-number-i-cant-stop-looking
     episode: https://that70sda.substack.com/p/the-one-number-i-cant-stop-looking-1e5
-    spotify: unconfirmed
+    spotify: confirmed
     youtube: Dx2zEJRPxrg
     x_thread: https://x.com/That70sDa/status/2113357812126355747
     linkedin: present
@@ -194,7 +203,7 @@ pieces:
     episode_no: EP16
     article: https://that70sda.substack.com/p/two-autumns-with-the-same-tell-and
     episode: https://that70sda.substack.com/p/two-autumns-with-the-same-tell-and-a3e
-    spotify: unconfirmed
+    spotify: confirmed
     youtube: f2bzd4CMqfE
     x_thread: https://x.com/That70sDa/status/2113366063434121693
     linkedin: present
@@ -205,7 +214,7 @@ pieces:
     episode_no: EP17
     article: https://that70sda.substack.com/p/the-safe-places-arent-safe-either
     episode: https://that70sda.substack.com/p/the-safe-places-arent-safe-either-9d6
-    spotify: unconfirmed
+    spotify: confirmed
     youtube: DOZtddXTTRY
     x_thread: https://x.com/That70sDa/status/2113378956070281631
     linkedin: present
@@ -227,8 +236,35 @@ pieces:
     episode_no: EP18
     article: https://that70sda.substack.com/p/late-in-the-second-inning
     episode: https://that70sda.substack.com/p/late-in-the-second-inning-472
-    spotify: unconfirmed
+    spotify: confirmed
     youtube: 0mzX8jqAQTs
     x_thread: https://x.com/That70sDa/status/2113693301132108118
     linkedin: present
+    article_listen_link: present
+  - id: rotation-p3
+    title: Rented money / rotation P3
+    kind: article
+    episode_no: EP19
+    article: https://that70sda.substack.com/p/rented-money
+    episode: https://that70sda.substack.com/p/rented-money-78f
+    spotify: confirmed
+    youtube: Kf6t8XEoPL0
+    youtube_short: 7rNCGwKhjNs
+    x_thread: https://x.com/That70sDa/status/2114119708077416672
+    x_community_posts: https://x.com/That70sDa/status/2114129162546078115 | https://x.com/That70sDa/status/2114129498501452236
+    linkedin: present
+    linkedin_urn: urn:li:share:7519950604887314432
+    article_listen_link: present
+  - id: scorecard-w43
+    title: Four sessions graded / Scorecard W43
+    kind: article
+    episode_no: EP20
+    article: https://that70sda.substack.com/p/four-sessions-graded-and-the-one
+    episode: https://that70sda.substack.com/p/four-sessions-graded-and-the-one-456
+    spotify: confirmed
+    youtube: nlpEtLoV9-M
+    youtube_short: 27SGgzB9dQA
+    x_thread: https://x.com/That70sDa/status/2114195899236954474
+    linkedin: n/a
+    linkedin_note: "NR - post held pending page session restore (manual sign-in); audit #2 draft item, closes when the post lands"
     article_listen_link: present
