@@ -554,3 +554,204 @@ targets:
     topic: Communities test - joined, no post yet; rules encourage sharing, less explicit than Stock & Crypto Trading
     url: https://x.com/i/communities/1724390935406981529
     link_rules: allowed-encouraged
+
+  # ---------------- Day-3 run (Sat 2026-10-24) ----------------
+  # Run log: logs/engagement-2026-10-24-01.md (49 rows, status partial).
+  # LinkedIn channel blocked on an expired session; Substack Notes and
+  # subscribes failed on a Substack site error (second day for subscribes).
+
+  # X
+  - channel: x
+    target: "@data_magician_"
+    followers: 38
+    actions: [reply, follow]
+    date: 2026-10-24
+    outcome: live
+    post: https://x.com/data_magician_/status/2114035439283720702
+    reply: https://x.com/That70sDa/status/2114036628486599120
+    topic: rate-window point; 4bp up Friday, 9bp down on the week
+
+  - channel: x
+    target: "@buysidedesk"
+    followers: 1105
+    actions: [reply, follow]
+    date: 2026-10-24
+    outcome: live
+    post: https://x.com/buysidedesk/status/2113954153709887876
+    reply: https://x.com/That70sDa/status/2114038512442126795
+    topic: DSO back toward 60-67 days as the cash-pace test
+
+  - channel: x
+    target: "@ohmomowu"
+    followers: 11
+    actions: [reply, follow]
+    date: 2026-10-24
+    outcome: live
+    post: https://x.com/ohmomowu/status/2114030874920640690
+    reply: https://x.com/That70sDa/status/2114040455210160609
+    topic: $25B run rate in the first three years; 2026 capacity sold out
+
+  - channel: x
+    target: "@AGTPinsights"
+    followers: 4817
+    actions: []
+    date: 2026-10-24
+    outcome: skipped
+    reason: press/media account (Media and News Company) - flagged, no engagement
+
+  - channel: x
+    target: "@UncleAlpha007"
+    followers: 14600
+    actions: []
+    date: 2026-10-24
+    outcome: skipped
+    reason: stock-idea / personal-finance leaning - flagged, no engagement
+
+  - channel: x
+    target: yesterday thread opener (Oct 23, P2 innings)
+    actions: [quote-post]
+    date: 2026-10-24
+    outcome: live
+    post: https://x.com/That70sDa/status/2113693301132108118
+    reply: https://x.com/That70sDa/status/2114042300787736994
+    notes: "kind: quote-post; fresh line ties the opener to Friday's tape (10-year back to about 5%, unwinding Thursday's flight to safety)"
+
+  - channel: x_community
+    target: "Stock & Crypto Trading"
+    actions: []
+    date: 2026-10-24
+    outcome: skipped
+    reason: "kind: community-post; Rented money thread not yet live at check, no post made; rules allow sharing own analysis"
+    url: https://x.com/i/communities/1832932064502710613
+
+  - channel: x_community
+    target: "Artificial Intelligence + Tech"
+    actions: []
+    date: 2026-10-24
+    outcome: skipped
+    reason: "kind: community-post; Rented money thread not yet live at check, no post made"
+    url: https://x.com/i/communities/1724390935406981529
+
+  # Substack
+  - channel: substack
+    target: Rock and Turner
+    url: rockandturner.substack.com
+    actions: [comment, restack]
+    date: 2026-10-24
+    outcome: live
+    post: https://rockandturner.substack.com/p/fri-oct-23-2026-the-market-today
+    notes: "kind: restack plain (count 2 to 3); restack with one-line comment failed - Substack Note system returned Something went wrong twice; second comment on this publication in two days, on a new post"
+
+  - channel: substack
+    target: Strategitz
+    url: strategitz.substack.com
+    actions: [comment]
+    date: 2026-10-24
+    outcome: live
+    post: https://strategitz.substack.com/p/global-markets-close-october-23-2026
+    followup: free subscribe failed again - Substack returned 'Something went wrong' (site error, second consecutive day); retry in a later run
+
+  - channel: substack
+    target: Broad Spectrum Finance
+    url: broadspectrum.substack.com
+    actions: [comment]
+    date: 2026-10-24
+    outcome: live
+    post: https://broadspectrum.substack.com/p/broad-spectrum-finance-88-below-five
+    followup: free subscribe failed again - Substack returned 'Something went wrong' (site error, second consecutive day); retry in a later run
+
+  - channel: substack
+    target: Stock Market Moods
+    url: stockmarketmoods.substack.com
+    actions: []
+    date: 2026-10-24
+    outcome: skipped
+    reason: "comment skipped - latest post Oct 21, not fresh in the last 24h; subscribe retry failed again - Substack returned 'Something went wrong' (site error, second consecutive day)"
+
+  - channel: substack
+    target: That70s Da Notes
+    actions: [note]
+    date: 2026-10-24
+    outcome: failed
+    reason: "kind: note; Substack Note system returned Something went wrong and Failed to send note twice; Notes page confirmed the Note did not post; Rented money article link omitted because the article was not yet live"
+    followup: retry the daily Note in a later run once the site error clears
+
+  - channel: substack
+    target: skips of record
+    date: 2026-10-24
+    outcome: skipped
+    reason: "Systematic Strategies (latest post Oct 2, not fresh); The Innermost Loop Chain Theory (fundamental physics, off-lane); Tech Trends News Update (comments paid-only, never pay); CappNotes (latest post Oct 20, not fresh); Neo Reports (paid-only, never pay); The Conviction And The Caution (Oct 23 moderation-pending comment could not be verified visible, not resubmitted); blankamisconiovalee (Ancient Intelligence post, off-lane)"
+
+  # LinkedIn (as the That70sDa page)
+  - channel: linkedin_page
+    target: channel session check
+    actions: []
+    date: 2026-10-24
+    outcome: blocked
+    reason: "session expired; original and fresh tabs both redirected to the LinkedIn login page; no password login attempted per standing rule; no comments or follows; needs manual sign-in by the page admin before the next LinkedIn run"
+
+  # YouTube (as the That70s Da channel)
+  - channel: youtube
+    target: Basis Points
+    subscribers: 22200
+    actions: [comment, subscribe]
+    date: 2026-10-24
+    outcome: live
+    video: https://www.youtube.com/watch?v=VkiAPoPym9w
+    comment: https://www.youtube.com/watch?v=VkiAPoPym9w&lc=UgwHP2HJ3lbz6WXZ4O94AaABAg
+    topic: Nasdaq 100 $1.2T day versus broader market resilience
+
+  - channel: youtube
+    target: Daily_Daily
+    subscribers: 5
+    actions: [comment, subscribe]
+    date: 2026-10-24
+    outcome: live
+    video: https://www.youtube.com/watch?v=GrK0lT0N1s8
+    comment: https://www.youtube.com/watch?v=GrK0lT0N1s8&lc=UgyeeEgAvUIx95Fm4eV4AaABAg
+    topic: Friday drop paired with Brent $116.72 and the 10-year near 5%
+
+  - channel: youtube
+    target: Drew Cohen
+    subscribers: 39400
+    actions: [comment, subscribe]
+    date: 2026-10-24
+    outcome: live
+    video: https://www.youtube.com/watch?v=963mP2Wcxag
+    comment: https://www.youtube.com/watch?v=963mP2Wcxag&lc=Ugzp-9lDoAgvLUn586Z4AaABAg
+    topic: $243B Search and other figure, 55% of revenues
+
+  - channel: youtube
+    target: klyrion
+    subscribers: 1
+    actions: [comment, subscribe]
+    date: 2026-10-24
+    outcome: live
+    video: https://www.youtube.com/watch?v=l7EcH_7v4gg
+    comment: https://www.youtube.com/watch?v=l7EcH_7v4gg&lc=UgwbntA03n6HkKWaxoJ4AaABAg
+    topic: Dow up versus S and P down rotation; video carries a YouTube AI-content label, comment itself mentions no AI or automation
+
+  - channel: youtube
+    target: Market Autopsy
+    subscribers: 5
+    actions: [comment, subscribe]
+    date: 2026-10-24
+    outcome: live
+    video: https://www.youtube.com/watch?v=Nr0J9C6AX6A
+    comment: https://www.youtube.com/watch?v=Nr0J9C6AX6A&lc=Ugz6GwtHDgxVXI_QrcB4AaABAg
+    topic: S and P 500 fading from its morning high as yield held near 5%; video carries a YouTube AI-content label, comment itself mentions no AI or automation
+
+  - channel: youtube
+    target: Semiconductor News / 3-Min Semi with Tai
+    subscribers: 89
+    actions: [subscribe]
+    comment_outcome: skipped
+    comment_reason: 'Only subscribers can comment gate still shows no composer despite the Oct 23 subscription; second consecutive run - carry to operator attention'
+    date: 2026-10-24
+    video: https://www.youtube.com/watch?v=ZvgvZcwH41U
+
+  - channel: youtube
+    target: skips of record
+    date: 2026-10-24
+    outcome: skipped
+    reason: "Risk Takers (primarily crypto-leaning); Larry Berman Official (pick-style Bear and Bull ETF Picks); The Monetary Matters Network (already engaged, 58.9K over ceiling); The Julia La Roche Show (76.1K over ceiling, press/media); ShadowTrader (107K over ceiling); NetWorth 60 (no count shown, personal-finance advice); PensionCraft (219K over ceiling); Patrick Boyle (1.36M over ceiling); Stock Moe (721K over ceiling, not visited)"
